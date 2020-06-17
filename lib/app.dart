@@ -9,7 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 class BankbooApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent));
 
     return MaterialApp(
       title: 'Bankboo',
@@ -20,6 +20,13 @@ class BankbooApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Palette.textBlack),
           color: Colors.white,
         ),
+        textTheme: TextTheme(
+          title: TextStyle(
+            color: Palette.textBlack,
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold
+          )
+        )
       ),
       initialRoute: RoutePaths.Splash,
       onGenerateRoute: Router.generate,

@@ -1,3 +1,4 @@
+import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
         visible = true;
       })
     });
+
+    Future.delayed(Duration(seconds: 3), () => {
+      _checkAuth()
+    });
+  }
+
+  _checkAuth() {
+    Navigator.pushNamed(context, RoutePaths.Signin);
   }
 
   @override
@@ -33,7 +42,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedOpacity(
                   opacity: visible ? 1 : 0,
                   duration: Duration(seconds: 3),
-                  child: Image.asset('lib/assets/best-logo-new-green-512.png', scale: 4.0,)
+                  child: Hero(
+                    tag: 'splash_logo',
+                    child: Image.asset('lib/assets/best-logo-new-green-512.png', scale: 5.0,)
+                  )
                 )
               ),
             ),
@@ -42,16 +54,10 @@ class _SplashScreenState extends State<SplashScreen> {
               child: AnimatedOpacity(
                 opacity: visible ? 1 : 0,
                 duration: Duration(seconds: 3),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text('Bankboo', style: TextStyle(color: Palette.primary, fontSize: 20.0),),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
-                      child: Text('v1.0.0', style: TextStyle(color: Palette.textBlack)),
-                    ),
-                  ],
-                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
+                  child: Text('v1.0.0', style: TextStyle(color: Palette.textBlack)),
+                )
               ),
             )
           ],
