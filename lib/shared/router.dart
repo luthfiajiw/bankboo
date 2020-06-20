@@ -1,5 +1,6 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/signin/signin_view.dart';
+import 'package:bankboo/screens/home_screen.dart';
 import 'package:bankboo/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,9 @@ class Router {
         break;
       case RoutePaths.Signin:
         return CupertinoPageRoute(builder: (_) => SigninView());
+        break;
+      case RoutePaths.Home:
+        return CupertinoPageRoute(builder: (_) => HomeScreen());
         break;
       default:
         return CupertinoPageRoute(builder: (_) => Scaffold(

@@ -1,3 +1,4 @@
+import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
 import 'package:bankboo/shared/widgets/custom_outlined_button.dart';
@@ -86,11 +87,11 @@ class _SigninViewState extends State<SigninView> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: CustomFilledButton(
-                        onPressed: (){},
+                        onPressed: () => Navigator.pushNamed(context, RoutePaths.Home),
                         label: 'Masuk',
                         labelColor: Colors.white,
                         isLoading: false,
-                        color: Palette.btnPrimary,
+                        color: Palette.secondary,
                       ),
                     ),
                     CustomOutlineButton(

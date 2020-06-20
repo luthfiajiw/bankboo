@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       })
     });
 
-    Future.delayed(Duration(seconds: 3), () => {
+    Future.delayed(Duration(milliseconds: 3500), () => {
       _checkAuth()
     });
   }
