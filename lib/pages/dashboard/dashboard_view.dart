@@ -75,50 +75,68 @@ class _DashboardViewState extends State<DashboardView> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: InkWell(
-                      onTap: (){},
-                      child: Container(
-                        margin: EdgeInsets.only(right: 10),
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: Palette.grey.withOpacity(0.05),
-                          borderRadius: BorderRadius.circular(15)
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.call_made, size: 30, color: Palette.secondary,),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Text('Setoran', style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w500),),
-                              )
-                            ],
+                    child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Palette.grey.withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: ClipRRect(
+                        borderRadius:  BorderRadius.circular(15),
+                        child: Container(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: (){},
+                              splashColor: Palette.grey.withOpacity(0.1),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(Icons.call_made, size: 30, color: Palette.secondary,),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text('Setoran', style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w500),),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: InkWell(
-                      onTap: (){},
-                      child: Container(
-                        margin: EdgeInsets.only(left: 10),
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: Palette.grey.withOpacity(0.05),
-                          borderRadius: BorderRadius.circular(15)
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.call_received, size: 30, color: Palette.secondary,),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Text('Penarikan', style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w500),),
-                              )
-                            ],
+                    child: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Palette.grey.withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: ClipRRect(
+                        borderRadius:  BorderRadius.circular(15),
+                        child: Container(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: (){},
+                              splashColor: Palette.grey.withOpacity(0.1),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(Icons.call_received, size: 30, color: Palette.secondary,),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text('Penarikan', style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w500),),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
