@@ -12,4 +12,6 @@ class Palette {
   static Color borderDefault = Color(0xFFE7E8EB);
 
   static Color statusSecondary = Color(0xFFfff3e0);
+  static Color statusSucceed = Color(0xFFeafaf7);
+  static Color succeed = Color(0xFF01a07a);
 }

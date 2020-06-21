@@ -1,5 +1,6 @@
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/deposit_tile.dart';
+import 'package:bankboo/shared/widgets/withdrawal_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -93,7 +94,13 @@ class _TransactionViewState extends State<TransactionView> {
                     child: ListView.builder(
                       itemCount: 10,
                       itemBuilder: (context, index) {
-                        return DepositTile(
+                        return _currentIndex == 1
+                        ? WithdrawalTile(
+                          date: '20 Mei 2020',
+                          amount: 100000,
+                          status: 'Sukses',
+                        )
+                        : DepositTile(
                           date: '20 Mei 2020',
                           category: 'Botol/Plastik',
                           status: 'Pending',
