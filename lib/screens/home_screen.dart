@@ -1,4 +1,5 @@
 import 'package:bankboo/pages/dashboard/dashboard_view.dart';
+import 'package:bankboo/pages/profile/profile_view.dart';
 import 'package:bankboo/pages/transaction/transaction_view.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _pages = [
     DashboardView(),
     TransactionView(),
-    DashboardView(),
+    ProfileView(),
   ];
 
   @override

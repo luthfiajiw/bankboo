@@ -10,4 +10,6 @@ class Palette {
   static Color textBlack = Color(0xFF303960);
   static Color textHint = Color(0xFFA5B1C2);
   static Color borderDefault = Color(0xFFE7E8EB);
+
+  static Color statusSecondary = Color(0xFFfff3e0);
 }

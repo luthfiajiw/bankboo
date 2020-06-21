@@ -33,7 +33,7 @@ class _TransactionViewState extends State<TransactionView> {
             child: Column(
               children: <Widget>[
                 Container(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   margin: EdgeInsets.fromLTRB(15.0, 20, 15, 0),
                   child: Text("Transaksi", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600)),
                 ),
@@ -91,13 +91,6 @@ class _TransactionViewState extends State<TransactionView> {
             ),
           )
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add),
-        elevation: 3.0,
-        backgroundColor: Palette.tertiary,
-        highlightElevation: 4.0,
       ),
     );
   }
