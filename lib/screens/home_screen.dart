@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _pages = [
     DashboardView(),
     TransactionView(),
+    TransactionView(),
     ProfileView(),
   ];
 
@@ -45,6 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.account_balance_wallet),
             title: Text('Transaksi', style: TextStyle(fontSize: 10.0))
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment),
+            title: Text('Laporan', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

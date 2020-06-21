@@ -1,4 +1,5 @@
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/deposit_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +10,7 @@ class TransactionView extends StatefulWidget {
 }
 
 class _TransactionViewState extends State<TransactionView> {
-  final List categories = ['Semua', 'Setoran', 'Penarikan'];
+  final List categories = ['Setoran', 'Penarikan'];
 
   int _currentIndex = 0;
 
@@ -38,7 +39,7 @@ class _TransactionViewState extends State<TransactionView> {
                   child: Text("Transaksi", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600)),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(10, 45, 15, 20),
+                  margin: EdgeInsets.fromLTRB(10, 50, 15, 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -85,6 +86,21 @@ class _TransactionViewState extends State<TransactionView> {
                       ),
                       Icon(Icons.filter_list, color: Palette.textHint,)
                     ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    child: ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return DepositTile(
+                          date: '20 Mei 2020',
+                          category: 'Botol/Plastik',
+                          status: 'Pending',
+                          weight: 5,
+                        );
+                      },
+                    ),
                   ),
                 )
               ],
