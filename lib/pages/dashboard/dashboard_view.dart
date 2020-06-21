@@ -22,7 +22,7 @@ class _DashboardViewState extends State<DashboardView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('123 456 789', style: TextStyle(color: Palette.grey, fontSize: 12),),
+                      Text('123 456 789', style: TextStyle(color: Palette.grey, fontSize: 12, fontWeight: FontWeight.w600),),
                       InkWell(
                         onTap: () {},
                         splashColor: Colors.grey[100],
