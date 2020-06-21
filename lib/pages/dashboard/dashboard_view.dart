@@ -22,7 +22,7 @@ class _DashboardViewState extends State<DashboardView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('2333647817', style: TextStyle(color: Palette.grey, fontSize: 12),),
+                      Text('123 456 789', style: TextStyle(color: Palette.grey, fontSize: 12),),
                       InkWell(
                         onTap: () {},
                         splashColor: Colors.grey[100],
@@ -38,11 +38,9 @@ class _DashboardViewState extends State<DashboardView> {
                       )
                     ],
                   ),
-                  IconButton(
-                    icon: Icon(Icons.account_box),
-                    onPressed: () {},
-                    iconSize: 40,
-                    color: Palette.textHint,
+                  InkWell(
+                    onTap: (){},
+                    child: Icon(Icons.account_box, size:35, color: Palette.grey,),
                   )
                 ],
               ),
@@ -51,9 +49,12 @@ class _DashboardViewState extends State<DashboardView> {
             Container(
               margin: EdgeInsets.fromLTRB(15, 5, 15, 20),
               width: double.infinity,
-              height: 120,
+              height: 125,
               decoration: BoxDecoration(
-                color: Palette.primary,
+                image: DecorationImage(
+                  image: AssetImage('lib/assets/bg-dashboard.png'),
+                  fit: BoxFit.fill
+                ),
                 borderRadius: BorderRadius.circular(15)
               ),
               child: Center(
@@ -63,7 +64,7 @@ class _DashboardViewState extends State<DashboardView> {
                     Text('Saldo Akhir', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w300),),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Text('Rp. 500.000', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),
+                      child: Text('Rp. 5.000.000', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),
                     ),
                   ],
                 ),
@@ -77,9 +78,9 @@ class _DashboardViewState extends State<DashboardView> {
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.only(right: 10),
-                      height: 120,
+                      height: 125,
                       decoration: BoxDecoration(
-                        color: Palette.grey.withOpacity(0.05),
+                        color: Palette.grey.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(15)
                       ),
                       child: ClipRRect(
@@ -111,9 +112,9 @@ class _DashboardViewState extends State<DashboardView> {
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.only(left: 10),
-                      height: 120,
+                      height: 125,
                       decoration: BoxDecoration(
-                        color: Palette.grey.withOpacity(0.05),
+                        color: Palette.grey.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(15)
                       ),
                       child: ClipRRect(

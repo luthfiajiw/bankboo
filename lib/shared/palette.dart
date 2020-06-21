@@ -5,6 +5,7 @@ class Palette {
   static Color divider = Color(0xFFFDFDFD);
   static Color primary = Color(0xFF0e6626);
   static Color secondary = Color(0xFFF09037);
+  static Color tertiary = Color(0xFFf1b235);
 
   static Color textBlack = Color(0xFF303960);
   static Color textHint = Color(0xFFA5B1C2);

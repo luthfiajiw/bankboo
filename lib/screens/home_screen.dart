@@ -1,7 +1,9 @@
 import 'package:bankboo/pages/dashboard/dashboard_view.dart';
+import 'package:bankboo/pages/transaction/transaction_view.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,12 +15,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _pages = [
     DashboardView(),
-    DashboardView(),
+    TransactionView(),
     DashboardView(),
   ];
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
