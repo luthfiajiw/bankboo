@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _checkAuth() {
-    Navigator.pushNamed(context, RoutePaths.Signin);
+    Navigator.pushReplacementNamed(context, RoutePaths.Signin);
   }
 
   @override

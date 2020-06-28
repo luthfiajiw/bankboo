@@ -12,7 +12,7 @@ class CustomOutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(minWidth: double.infinity, minHeight: 54.0),
+      constraints: BoxConstraints(minWidth: double.infinity, minHeight: 45.0),
       child: OutlineButton(
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
