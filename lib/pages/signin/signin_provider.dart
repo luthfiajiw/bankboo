@@ -1,4 +1,5 @@
 import 'package:bankboo/core/providers/base_provider.dart';
+import 'package:flutter/cupertino.dart';
 
 class SigninProvider extends BaseProvider {
   String _email;
@@ -12,7 +13,7 @@ class SigninProvider extends BaseProvider {
     notifyListeners();
   }
   void setPassword(String value) {
-    _email = value;
+    _password = value;
     notifyListeners();
   }
 

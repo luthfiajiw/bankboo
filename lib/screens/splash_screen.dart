@@ -2,6 +2,7 @@ import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -25,8 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  _checkAuth() {
-    Navigator.pushReplacementNamed(context, RoutePaths.Signin);
+  _checkAuth() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if (prefs.getString('credentials') != null) {
+      Navigator.pushReplacementNamed(context, RoutePaths.Home);
+    } else {
+      Navigator.pushReplacementNamed(context, RoutePaths.Signin);
+    }
   }
 
   @override

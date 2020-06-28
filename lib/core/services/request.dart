@@ -16,16 +16,7 @@ mixin Request {
 }
 
 class Header {
-  static Future<Map<dynamic, String>> preAuthorization() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<dynamic, String> preCredentials = jsonDecode(prefs.getString('pre_credentials'));
-
-    return {
-      HttpHeaders.authorizationHeader: '${preCredentials["type"]} ${preCredentials["access_token"]}'
-    };
-  }
-
-  static Future<Map<dynamic, String>> authorization() async {
+  static Future<Map<String, dynamic>> authorization() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<dynamic, String> credentials = jsonDecode(prefs.getString('credentials'));
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomFilledButton extends StatelessWidget {
   final Function onPressed;
@@ -36,9 +37,9 @@ class CustomFilledButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         child: isLoading
         ? SizedBox(
-          child: CircularProgressIndicator(
-            strokeWidth: 2.0,
-            valueColor: AlwaysStoppedAnimation<Color>(color),
+          child: SpinKitThreeBounce(
+            color: color,
+            size: 15.0,
           ),
           width: 25.0,
           height: 25.0

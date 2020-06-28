@@ -8,12 +8,14 @@ class CustomTextField extends StatelessWidget {
   final bool isFilled;
   final bool autofocus;
   final Function onTap;
+  final Function onSaved;
+  final Function validator;
   final FocusNode focusNode;
   final EdgeInsetsGeometry contentPadding;
 
   const CustomTextField({
     Key key, this.label, this.hintText, this.isFilled, this.autofocus, this.contentPadding,
-    this.focusNode, this.onTap
+    this.focusNode, this.onTap, this.onSaved, this.validator
   }) : super(key: key);
 
   TextFormField textFormField() {
@@ -39,6 +41,8 @@ class CustomTextField extends StatelessWidget {
       autofocus: autofocus == null ? false : autofocus,
       focusNode: focusNode,
       onTap: onTap,
+      onSaved: onSaved,
+      validator: validator,
     );
   }
   
