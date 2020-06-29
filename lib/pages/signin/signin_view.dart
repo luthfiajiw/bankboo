@@ -1,9 +1,12 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/signin/signin_service.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/utils/string_extension.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
 import 'package:bankboo/shared/widgets/custom_outlined_button.dart';
 import 'package:bankboo/shared/widgets/custom_textfield.dart';
+import 'package:bankboo/shared/models/generic_fetch_error.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +22,7 @@ class _SigninViewState extends State<SigninView> {
   final form = GlobalKey<FormState>();
 
   bool isFocus = false;
+  Flushbar flush;
 
   @override
   void initState() {
@@ -51,9 +55,30 @@ class _SigninViewState extends State<SigninView> {
         await service.getAccessToken();
         Navigator.pushReplacementNamed(context, RoutePaths.Home);
       } catch (e) {
+        GenericFetchError error = GenericFetchError.fromJson(e.response.data);
+        _showSnackbar(error);
         throw(e);
       }
     }
+  }
+
+  _showSnackbar(GenericFetchError error) {
+    flush = Flushbar<bool>(
+      backgroundColor: Colors.redAccent,
+      messageText: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 13), textAlign: TextAlign.center,),
+        ],
+      ),
+      animationDuration: Duration(milliseconds: 700),
+      duration: Duration(seconds: 4),
+      flushbarStyle: FlushbarStyle.FLOATING,
+      flushbarPosition: FlushbarPosition.TOP,
+      borderRadius: 8,
+      isDismissible: true,
+      margin: EdgeInsets.symmetric(horizontal: 15.0),
+    )..show(context);
   }
 
   @override
@@ -68,7 +93,7 @@ class _SigninViewState extends State<SigninView> {
             child: Form(
               key: form,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
+                margin: EdgeInsets.symmetric(horizontal: 15.0),
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
