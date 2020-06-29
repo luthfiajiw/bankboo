@@ -1,39 +1,33 @@
 import 'dart:convert';
 
-import 'package:bankboo/config.dart';
-import 'package:bankboo/core/providers/base_provider.dart';
 import 'package:bankboo/core/services/request.dart';
 import 'package:bankboo/pages/signin/signin_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SigninService extends SigninProvider with Request {
+class SigninService extends SigninProvider {
   Response response;
   Dio dio = new Dio();
 
-  @override
-  post({String endpoint}) async {
+  Future<Response> getAccessToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setBusy(true);
 
     try {
-      print('email $email');
-      print('password $password');
-      response = await dio.post(
-        '${Config.API}$endpoint',
-        data: {
-          'email': email,
-          'password': password
-        }
-      );
+      Map body = {
+        'email': email,
+        'password': password,
+      };
 
-      prefs.setString('credentials', jsonEncode(response.data));
+      response = await Request().signin(endpoint: '/customer/signin', body: body);
+
       setBusy(false);
+      prefs.setString('credentials', jsonEncode(response.data));
+      return response;
     } catch (e) {
       setBusy(false);
       throw(e);
     }
-
   }
 
 }

@@ -48,7 +48,7 @@ class _SigninViewState extends State<SigninView> {
       form.currentState.save();
 
       try {
-        await service.post(endpoint: '/customer/signin');
+        await service.getAccessToken();
         Navigator.pushReplacementNamed(context, RoutePaths.Home);
       } catch (e) {
         throw(e);
