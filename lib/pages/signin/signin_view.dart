@@ -68,7 +68,7 @@ class _SigninViewState extends State<SigninView> {
       messageText: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 13), textAlign: TextAlign.center,),
+          Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 12), textAlign: TextAlign.center,),
         ],
       ),
       animationDuration: Duration(milliseconds: 700),
