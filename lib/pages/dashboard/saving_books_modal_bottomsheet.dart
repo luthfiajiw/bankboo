@@ -24,7 +24,7 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 10.0),
+              margin: EdgeInsets.only(bottom: 15.0),
               padding: EdgeInsets.symmetric(vertical: 15.0),
               color: Colors.white,
               child: Row(
