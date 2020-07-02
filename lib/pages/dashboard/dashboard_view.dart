@@ -1,6 +1,7 @@
 import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';
+import 'package:bankboo/pages/dashboard/saving_books_modal_bottomsheet.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,15 @@ class _DashboardViewState extends State<DashboardView> {
     super.initState();
   }
 
+  _showSavingBooksDropdown() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) => SavingBooksModalBottomsheet()
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,7 +41,7 @@ class _DashboardViewState extends State<DashboardView> {
                   SavingBooksDropdown(
                     accountNumber: '234 234',
                     bankName: 'Bank Sampah Ngawi',
-                    onTap: (){},
+                    onTap: () => _showSavingBooksDropdown(),
                   ),
                   InkWell(
                     onTap: (){},
