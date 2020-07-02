@@ -6,6 +6,6 @@ import 'package:flutter_stetho/flutter_stetho.dart';
 void main() {
   Stetho.initialize();
 
-  Config.setEnvironment(Env.DEV);
+  Config.setEnvironment(Env.LOCAL);
   runApp(BankbooApp());
 }
