@@ -117,6 +117,7 @@ class _SigninViewState extends State<SigninView> {
                           padding: const EdgeInsets.symmetric(vertical: 20.0),
                           child: CustomTextField(
                             label: 'Email',
+                            prefixIcon: Icon(Icons.mail_outline, color: Palette.grey,),
                             focusNode: emailFocus,
                             onSaved: (value) => service.setEmail(value),
                             validator: (value) {
@@ -128,9 +129,15 @@ class _SigninViewState extends State<SigninView> {
                           ),
                         ),
                         CustomTextField(
-                          label: 'password',
+                          label: 'Password',
+                          prefixIcon: Icon(Icons.lock_outline, color: Palette.grey,),
                           focusNode: pswFocus,
+                          obscureText: !service.isVisible,
                           onSaved: (value) => service.setPassword(value),
+                          suffixIcon: IconButton(
+                            icon: Icon(!service.isVisible ? Icons.visibility_off : Icons.visibility, color: Palette.grey,),
+                            onPressed: () => service.setVisible(!service.isVisible)
+                          ),
                           validator: (value) {
                             if (value == '') {
                               return 'Password harus diisi';
