@@ -39,7 +39,7 @@ class CustomFilledButton extends StatelessWidget {
         ? SizedBox(
           child: SpinKitThreeBounce(
             color: color,
-            size: 15.0,
+            size: 12.0,
           ),
           width: 25.0,
           height: 25.0
