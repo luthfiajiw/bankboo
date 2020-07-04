@@ -61,6 +61,7 @@ class _DashboardViewState extends State<DashboardView> {
                 children: <Widget>[
                   Menu(
                     title: 'Setoran',
+                    margin: EdgeInsets.only(right: 10),
                     icon: Icon(Icons.call_made, size: 30, color: Palette.secondary,),
                     onTap: (){},
                   ),
@@ -71,7 +72,26 @@ class _DashboardViewState extends State<DashboardView> {
                   )
                 ],
               ),
-            )
+            ),
+
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+              child: Row(
+                children: <Widget>[
+                  Menu(
+                    margin: EdgeInsets.only(right: 10),
+                    title: 'Banks',
+                    icon: Icon(Icons.local_mall, size: 30, color: Palette.secondary,),
+                    onTap: (){},
+                  ),
+                  Menu(
+                    title: 'Buku Tabungan',
+                    icon: Icon(Icons.ac_unit, color: Palette.secondary,),
+                    onTap: (){},
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

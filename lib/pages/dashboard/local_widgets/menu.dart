@@ -5,14 +5,15 @@ class Menu extends StatelessWidget {
   final String title;
   final Icon icon;
   final Function onTap;
+  final EdgeInsets margin;
 
-  const Menu({Key key, this.title, this.icon, this.onTap}) : super(key: key);
+  const Menu({Key key, this.title, this.icon, this.onTap, this.margin}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(right: 10),
+        margin: margin,
         height: 125,
         decoration: BoxDecoration(
           color: Palette.grey.withOpacity(0.07),
