@@ -1,6 +1,7 @@
 import 'package:bankboo/pages/dashboard/dashboard_view.dart';
 import 'package:bankboo/pages/profile/profile_view.dart';
 import 'package:bankboo/pages/transaction/transaction_view.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,15 +44,15 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Dashboard', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet),
+            icon: Icon(BankbooLightIcon.wallet),
             title: Text('Transaksi', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
+            icon: Icon(BankbooLightIcon.clipboard_list_check),
             title: Text('Laporan', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(BankbooLightIcon.user),
             title: Text('Profil', style: TextStyle(fontSize: 10.0))
           ),
         ]

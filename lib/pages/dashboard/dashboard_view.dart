@@ -2,6 +2,7 @@ import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';
 import 'package:bankboo/pages/dashboard/saving_books_modal_bottomsheet.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -62,12 +63,12 @@ class _DashboardViewState extends State<DashboardView> {
                   Menu(
                     title: 'Setoran',
                     margin: EdgeInsets.only(right: 10),
-                    icon: Icon(Icons.call_made, size: 30, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.donate, size: 30, color: Palette.secondary,),
                     onTap: (){},
                   ),
                   Menu(
                     title: 'Penarikan',
-                    icon: Icon(Icons.call_received, size: 30, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.vote_yea, size: 28, color: Palette.secondary,),
                     onTap: (){},
                   )
                 ],
@@ -81,12 +82,12 @@ class _DashboardViewState extends State<DashboardView> {
                   Menu(
                     margin: EdgeInsets.only(right: 10),
                     title: 'Banks',
-                    icon: Icon(Icons.local_mall, size: 30, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
                     onTap: (){},
                   ),
                   Menu(
                     title: 'Buku Tabungan',
-                    icon: Icon(Icons.ac_unit, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.credit_card_front, color: Palette.secondary,),
                     onTap: (){},
                   )
                 ],

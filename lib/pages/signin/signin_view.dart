@@ -1,5 +1,6 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/signin/signin_service.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/utils/string_extension.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
@@ -65,9 +66,11 @@ class _SigninViewState extends State<SigninView> {
   _showSnackbar(GenericFetchError error) {
     flush = Flushbar<bool>(
       backgroundColor: Colors.redAccent,
-      messageText: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      messageText: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Icon(BankbooLightIcon.info_square, size: 14, color: Colors.white,),
+          SizedBox(width: 5,),
           Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 12), textAlign: TextAlign.center,),
         ],
       ),
@@ -117,7 +120,7 @@ class _SigninViewState extends State<SigninView> {
                           padding: const EdgeInsets.symmetric(vertical: 20.0),
                           child: CustomTextField(
                             label: 'Email',
-                            prefixIcon: Icon(Icons.mail_outline, color: Palette.grey,),
+                            prefixIcon: Icon(BankbooLightIcon.envelope, color: Palette.grey,),
                             focusNode: emailFocus,
                             onSaved: (value) => service.setEmail(value),
                             validator: (value) {
@@ -130,12 +133,12 @@ class _SigninViewState extends State<SigninView> {
                         ),
                         CustomTextField(
                           label: 'Password',
-                          prefixIcon: Icon(Icons.lock_outline, color: Palette.grey,),
+                          prefixIcon: Icon(BankbooLightIcon.lock, color: Palette.grey,),
                           focusNode: pswFocus,
                           obscureText: !service.isVisible,
                           onSaved: (value) => service.setPassword(value),
                           suffixIcon: IconButton(
-                            icon: Icon(!service.isVisible ? Icons.visibility_off : Icons.visibility, color: Palette.grey,),
+                            icon: Icon(!service.isVisible ? BankbooLightIcon.eye_slash : BankbooLightIcon.eye, color: Palette.grey, size: 18,),
                             onPressed: () => service.setVisible(!service.isVisible)
                           ),
                           validator: (value) {

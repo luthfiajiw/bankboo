@@ -1,4 +1,5 @@
 import 'package:bankboo/core/constants/route_paths.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
@@ -72,13 +73,13 @@ class _ProfileViewState extends State<ProfileView> {
                     child: Column(
                       children: <Widget>[
                         ProfileTile(
-                          leading: Icons.location_on,
+                          leading: BankbooLightIcon.map_marker_alt,
                           title: "Alamat",
                           content: "Jl. Mertilang XII Blok KB3 No. 4, Pondok Pucung, Pondok Aren, Tangerang Selatan, Banten",
                         ),
                         SizedBox(height: 20,),
                         ProfileTile(
-                          leading: Icons.phone,
+                          leading: BankbooLightIcon.phone,
                           title: "No. Handphone",
                           content: "082246854054",
                         )

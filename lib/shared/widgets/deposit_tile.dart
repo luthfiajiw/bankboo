@@ -1,3 +1,4 @@
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class DepositTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.primary
                 ),
-                child: Icon(Icons.call_made, color: Colors.white,),
+                child: Icon(BankbooLightIcon.donate, color: Colors.white,),
               ),
               Container(
                 margin: EdgeInsets.only(left: 10),

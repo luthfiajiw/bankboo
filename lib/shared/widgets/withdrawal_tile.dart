@@ -1,3 +1,4 @@
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class WithdrawalTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.tertiary
                 ),
-                child: Icon(Icons.call_received, color: Colors.white,),
+                child: Icon(BankbooLightIcon.vote_yea, color: Colors.white,),
               ),
               Container(
                 margin: EdgeInsets.only(left: 10),
