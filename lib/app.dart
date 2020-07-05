@@ -23,7 +23,8 @@ class BankbooApp extends StatelessWidget {
           highlightColor: Colors.transparent,
           focusColor: Colors.transparent,
           appBarTheme: AppBarTheme(
-            iconTheme: IconThemeData(color: Palette.textBlack),
+            iconTheme: IconThemeData(color: Palette.textBlack, size: 20),
+            elevation: 0,
             color: Colors.white,
           ),
           textTheme: TextTheme(
@@ -32,7 +33,7 @@ class BankbooApp extends StatelessWidget {
               fontSize: 20.0,
               fontWeight: FontWeight.bold
             )
-          )
+          ),
         ),
         initialRoute: RoutePaths.Splash,
         onGenerateRoute: Router.generate,

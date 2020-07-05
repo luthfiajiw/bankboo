@@ -1,4 +1,5 @@
 import 'package:bankboo/pages/dashboard/local_widgets/saving_book_tile.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,7 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
               title: 'Total',
               margin: EdgeInsets.symmetric(vertical: 15.0),
               fontSize: 16.0,
-              icon: Icons.all_inclusive,
+              icon: BankbooLightIcon.globe,
               iconColor: Palette.primary,
               balance: 100000,
             ),
@@ -63,7 +64,7 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
               margin: EdgeInsets.only(top: 15),
               title: 'Buku Tabungan Bank Sampah Ngawi',
               fontSize: 14.0,
-              icon: Icons.credit_card,
+              icon: BankbooLightIcon.credit_card_front,
               iconColor: Palette.secondary,
               balance: 100000,
             ),
@@ -74,7 +75,7 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
             SavingBookTile(
               title: 'Buku Tabungan Bank Sampah Sejahtera',
               fontSize: 14.0,
-              icon: Icons.credit_card,
+              icon: BankbooLightIcon.credit_card_front,
               iconColor: Palette.secondary,
               balance: 100000,
             ),

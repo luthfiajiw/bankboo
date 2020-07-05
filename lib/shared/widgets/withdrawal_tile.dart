@@ -1,5 +1,6 @@
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/lozenges.dart';
 import 'package:flutter/material.dart';
 
 class WithdrawalTile extends StatelessWidget {
@@ -49,14 +50,7 @@ class WithdrawalTile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Palette.statusSucceed
-                ),
-                child: Text(status, style: TextStyle(color: Palette.succeed, fontSize: 10),),
-              ),
+              Lozenges(status: status,)
             ],
           )
         ],

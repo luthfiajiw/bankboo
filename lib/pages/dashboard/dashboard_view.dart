@@ -1,3 +1,4 @@
+import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';
@@ -83,12 +84,12 @@ class _DashboardViewState extends State<DashboardView> {
                     margin: EdgeInsets.only(right: 10),
                     title: 'Banks',
                     icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
-                    onTap: (){},
+                    onTap: () => Navigator.pushNamed(context, RoutePaths.Banks),
                   ),
                   Menu(
                     title: 'Buku Tabungan',
-                    icon: Icon(BankbooLightIcon.credit_card_front, color: Palette.secondary,),
-                    onTap: (){},
+                    icon: Icon(BankbooLightIcon.credit_card_front, size: 30, color: Palette.secondary,),
+                    onTap: () => Navigator.pushNamed(context, RoutePaths.SavingBooks),
                   )
                 ],
               ),
