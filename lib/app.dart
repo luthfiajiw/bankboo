@@ -24,7 +24,7 @@ class BankbooApp extends StatelessWidget {
           focusColor: Colors.transparent,
           appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(color: Palette.textBlack, size: 20),
-            elevation: 0,
+            elevation: 1,
             color: Colors.white,
           ),
           textTheme: TextTheme(

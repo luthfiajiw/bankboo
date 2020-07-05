@@ -9,6 +9,7 @@ class SavingBooksView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: appBarModule(
         context,
         title: 'Buku Tabungan',
@@ -17,26 +18,28 @@ class SavingBooksView extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           SavingBookTile(
-            title: 'Bank Sampah Ngawi',
-            margin: EdgeInsets.symmetric(vertical: 15.0),
+            title: 'Buku Tabungan Bank Sampah Ngawi',
+            margin: EdgeInsets.only(top: 15.0, bottom: 10),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,
             iconColor: Palette.secondary,
             accountNumber: 768768987,
           ),
+          Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           SavingBookTile(
-            title: 'Bank Sampah Bintaro',
-            margin: EdgeInsets.only(bottom: 15.0),
+            title: 'Buku Tabungan Bank Sampah Bintaro',
+            margin: EdgeInsets.only(bottom: 10.0),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,
             iconColor: Palette.secondary,
             accountNumber: 768768987,
           ),
+          Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           SavingBookTile(
-            title: 'Bank Sampah Kemang',
-            margin: EdgeInsets.only(bottom: 15.0),
+            title: 'Buku Tabungan Bank Sampah Kemang',
+            margin: EdgeInsets.only(bottom: 10.0),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,

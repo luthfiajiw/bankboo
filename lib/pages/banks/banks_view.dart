@@ -11,6 +11,7 @@ class BanksView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: appBarModule(
         context,
         title: 'Banks',
@@ -26,23 +27,25 @@ class BanksView extends StatelessWidget {
         children: <Widget>[
           BankTile(
             title: 'Bank Sampah Ngawi',
-            margin: EdgeInsets.symmetric(vertical: 15.0),
+            margin: EdgeInsets.only(top: 15.0, bottom: 10),
             fontSize: 16.0,
             icon: BankbooLightIcon.university,
             iconColor: Palette.secondary,
             number: 345678345,
           ),
+          Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           BankTile(
             title: 'Bank Sampah Bintaro',
-            margin: EdgeInsets.only(bottom: 15.0),
+            margin: EdgeInsets.only(bottom: 10.0),
             fontSize: 16.0,
             icon: BankbooLightIcon.university,
             iconColor: Palette.secondary,
             number: 345678345,
           ),
+          Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           BankTile(
             title: 'Bank Sampah Kemang',
-            margin: EdgeInsets.only(bottom: 15.0),
+            margin: EdgeInsets.only(bottom: 10.0),
             fontSize: 16.0,
             icon: BankbooLightIcon.university,
             iconColor: Palette.secondary,

@@ -30,7 +30,10 @@ class BankTile extends StatelessWidget {
             children: <Widget>[
               Text("$number", style: TextStyle(color: Palette.textBlack, fontSize: 14)),
               SizedBox(height: 5),
-              Text(title, style: TextStyle(color: Palette.textBlack, fontSize: fontSize, fontWeight: FontWeight.w500),),
+              Container(
+                width: 250,
+                child: Text(title, style: TextStyle(color: Palette.textBlack, fontSize: fontSize, fontWeight: FontWeight.w500),)
+              ),
             ],
           ),
 
