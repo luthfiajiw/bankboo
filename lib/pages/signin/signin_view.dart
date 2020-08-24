@@ -57,7 +57,8 @@ class _SigninViewState extends State<SigninView> {
         Navigator.pushReplacementNamed(context, RoutePaths.Home);
       } catch (e) {
         GenericFetchError error = GenericFetchError.fromJson(e.response.data);
-        _showSnackbar(error);
+        _showSnackbar(e);
+        print(e);
         throw(e);
       }
     }

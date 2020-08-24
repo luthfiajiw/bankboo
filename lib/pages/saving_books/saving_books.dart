@@ -1,24 +1,26 @@
+import 'package:bankboo/pages/banks/banks.dart';
+import 'package:bankboo/shared/models/customer.dart';
 import 'package:bankboo/shared/models/page_context.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'banks.g.dart';
+part 'saving_books.g.dart';
 
 @JsonSerializable()
-class Banks {
+class SavingBooks {
   String message;
   @JsonKey(name: 'status_code')
   int statusCode;
   Data data;
 
-  Banks({
+  SavingBooks({
     this.message,
     this.statusCode,
     this.data
   });
 
-  factory Banks.fromJson(Map<String, dynamic> parsedJson) => _$BanksFromJson(parsedJson);
+  factory SavingBooks.fromJson(Map<String, dynamic> parsedJson) => _$SavingBooksFromJson(parsedJson);
 
-  Map<String, dynamic> toJson() => _$BanksToJson(this);
+  Map<String, dynamic> toJson() => _$SavingBooksToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -26,16 +28,16 @@ class Data {
   int count;
   @JsonKey(name: 'page_context')
   PageContext pageContext;
-  List<Bank> results;
+  List<SavingBook> results;
 
   Data({
     int count,
     PageContext pageContext,
-    List<Bank> results
+    List<SavingBook> results
   }) :
   count = count ?? 0,
   pageContext = pageContext ?? PageContext(),
-  results = results ?? <Bank>[];
+  results = results ?? <SavingBook>[];
 
   factory Data.fromJson(Map<String, dynamic> parsedJson) => _$DataFromJson(parsedJson);
 
@@ -43,34 +45,26 @@ class Data {
 }
 
 @JsonSerializable()
-class Bank {
+class SavingBook {
   String id;
-  int code;
-  String name;
-  String email;
-  @JsonKey(name: 'image_url')
-  String imageUrl;
-  String phone;
-  String address;
-  @JsonKey(name: 'last_login')
-  String lastLogin;
+  int number;
+  String balance;
   String createdAt;
   String updatedAt;
+  Customer customer;
+  Bank bank;
 
-  Bank({
+  SavingBook({
     this.id,
-    this.code,
-    this.name,
-    this.email,
-    this.imageUrl,
-    this.phone,
-    this.address,
-    this.lastLogin,
+    this.number,
+    this.balance,
     this.createdAt,
-    this.updatedAt
+    this.updatedAt,
+    this.customer,
+    this.bank
   });
 
-  factory Bank.fromJson(Map<String, dynamic> parsedJson) => _$BankFromJson(parsedJson);
+  factory SavingBook.fromJson(Map<String, dynamic> parsedJson) => _$SavingBookFromJson(parsedJson);
 
-  Map<String, dynamic> toJson() => _$BankToJson(this);
+  Map<String, dynamic> toJson() => _$SavingBookToJson(this);
 }

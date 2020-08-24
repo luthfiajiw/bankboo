@@ -42,7 +42,9 @@ class _BanksViewState extends State<BanksView> {
       ),
       body: Consumer<BanksService>(
         builder: (context, service, _) {
-          int lengthData = service.banks.data.count != null ? service.banks.data.count : 0;
+          int lengthData = service.banks.data != null
+          ? service.banks.data.count != null ? service.banks.data.count : 0
+          : 0;
 
           return service.isBusy
           ? Center(

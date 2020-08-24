@@ -7,7 +7,7 @@ class Config {
   static void setEnvironment(Env env) {
     switch (env) {
       case Env.LOCAL:
-        API = "http://192.168.1.17:3000/api/v1";
+        API = "http://192.168.1.21:3000/api/v1";
         break;
       case Env.DEV:
         API = "https://bankboo-api.herokuapp.com/api/v1";

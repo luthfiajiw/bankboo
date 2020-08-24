@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'banks.dart';
+part of 'saving_books.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Banks _$BanksFromJson(Map<String, dynamic> json) {
-  return Banks(
+SavingBooks _$SavingBooksFromJson(Map<String, dynamic> json) {
+  return SavingBooks(
     message: json['message'] as String,
     statusCode: json['status_code'] as int,
     data: json['data'] == null
@@ -16,7 +16,8 @@ Banks _$BanksFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BanksToJson(Banks instance) => <String, dynamic>{
+Map<String, dynamic> _$SavingBooksToJson(SavingBooks instance) =>
+    <String, dynamic>{
       'message': instance.message,
       'status_code': instance.statusCode,
       'data': instance.data,
@@ -29,8 +30,8 @@ Data _$DataFromJson(Map<String, dynamic> json) {
         ? null
         : PageContext.fromJson(json['page_context'] as Map<String, dynamic>),
     results: (json['results'] as List)
-        ?.map(
-            (e) => e == null ? null : Bank.fromJson(e as Map<String, dynamic>))
+        ?.map((e) =>
+            e == null ? null : SavingBook.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
@@ -41,30 +42,29 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'results': instance.results?.map((e) => e?.toJson())?.toList(),
     };
 
-Bank _$BankFromJson(Map<String, dynamic> json) {
-  return Bank(
+SavingBook _$SavingBookFromJson(Map<String, dynamic> json) {
+  return SavingBook(
     id: json['id'] as String,
-    code: json['code'] as int,
-    name: json['name'] as String,
-    email: json['email'] as String,
-    imageUrl: json['image_url'] as String,
-    phone: json['phone'] as String,
-    address: json['address'] as String,
-    lastLogin: json['last_login'] as String,
+    number: json['number'] as int,
+    balance: json['balance'] as String,
     createdAt: json['createdAt'] as String,
     updatedAt: json['updatedAt'] as String,
+    customer: json['customer'] == null
+        ? null
+        : Customer.fromJson(json['customer'] as Map<String, dynamic>),
+    bank: json['bank'] == null
+        ? null
+        : Bank.fromJson(json['bank'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$BankToJson(Bank instance) => <String, dynamic>{
+Map<String, dynamic> _$SavingBookToJson(SavingBook instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'code': instance.code,
-      'name': instance.name,
-      'email': instance.email,
-      'image_url': instance.imageUrl,
-      'phone': instance.phone,
-      'address': instance.address,
-      'last_login': instance.lastLogin,
+      'number': instance.number,
+      'balance': instance.balance,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'customer': instance.customer,
+      'bank': instance.bank,
     };

@@ -4,11 +4,11 @@ import 'package:bankboo/pages/banks/banks.dart';
 import 'package:dio/dio.dart';
 
 class BanksService extends BaseProvider {
-  Banks banks;
   Response response;
   Dio dio = new Dio();
+  Banks banks = new Banks();
 
-  Future<Response> getBanks() async {
+  Future<Banks> getBanks() async {
     setBusy(true);
 
     try {
@@ -17,6 +17,7 @@ class BanksService extends BaseProvider {
       banks = Banks.fromJson(response.data);
 
       setBusy(false);
+      return banks;
     } catch (e) {
       setBusy(false);
       throw(e);
