@@ -26,7 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   dio: ^3.0.9
-  provider: ^3.1.0+1
+  provider: ^4.3.2+1
   shared_preferences: ^0.5.7+3
   flutter_spinkit: ^4.1.2
   flutter_stetho: ^0.5.2

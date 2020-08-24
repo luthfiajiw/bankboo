@@ -16,7 +16,6 @@ class BanksService extends BaseProvider {
 
       banks = Banks.fromJson(response.data);
 
-      print(banks.toJson());
       setBusy(false);
     } catch (e) {
       setBusy(false);

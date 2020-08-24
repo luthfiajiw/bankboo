@@ -22,7 +22,7 @@ class _BanksViewState extends State<BanksView> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration.zero, () async => await Provider.of<BanksService>(context).getBanks());
+    Future.delayed(Duration.zero, () async => await Provider.of<BanksService>(context, listen: false).getBanks());
   }
 
   @override
