@@ -8,7 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Header {
   static Future<Map<String, dynamic>> authorization() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<dynamic, String> credentials = jsonDecode(prefs.getString('credentials'));
+    // print(jsonDecode(prefs.getString('credentials')));
+    Map<String, dynamic> credentials = jsonDecode(prefs.getString('credentials'));
 
     return {
       HttpHeaders.authorizationHeader: '${credentials["type"]} ${credentials["access_token"]}'
@@ -35,8 +36,16 @@ class Request {
   
   Future getList({String endpoint, int perPage}) async {
     try {
-      
+      response = await dio.get(
+        '${Config.API}$endpoint',
+        options: Options(
+          headers: await Header.authorization()
+        )
+      );
+
+      return response;
     } catch (e) {
+      throw(e);
     }
   }
 

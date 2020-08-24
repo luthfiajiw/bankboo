@@ -19,7 +19,7 @@ class SavingBooksView extends StatelessWidget {
         children: <Widget>[
           SavingBookTile(
             title: 'Buku Tabungan Bank Sampah Ngawi',
-            margin: EdgeInsets.only(top: 15.0, bottom: 10),
+            margin: EdgeInsets.symmetric(vertical: 10),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,
@@ -29,7 +29,7 @@ class SavingBooksView extends StatelessWidget {
           Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           SavingBookTile(
             title: 'Buku Tabungan Bank Sampah Bintaro',
-            margin: EdgeInsets.only(bottom: 10.0),
+            margin: EdgeInsets.symmetric(vertical: 10),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,
@@ -39,7 +39,7 @@ class SavingBooksView extends StatelessWidget {
           Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,),
           SavingBookTile(
             title: 'Buku Tabungan Bank Sampah Kemang',
-            margin: EdgeInsets.only(bottom: 10.0),
+            margin: EdgeInsets.symmetric(vertical: 10),
             status: 'Aktif',
             fontSize: 16.0,
             icon: BankbooLightIcon.credit_card_front,

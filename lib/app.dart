@@ -1,4 +1,5 @@
 import 'package:bankboo/core/constants/route_paths.dart';
+import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/pages/signin/signin_service.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/router.dart';
@@ -15,7 +16,8 @@ class BankbooApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<SigninService>(create: (_) => SigninService())
+        ChangeNotifierProvider<SigninService>(create: (_) => SigninService()),
+        ChangeNotifierProvider<BanksService>(create: (_) => BanksService()),
       ],
       child: MaterialApp(
         title: 'Bankboo',

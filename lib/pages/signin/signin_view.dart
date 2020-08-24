@@ -119,7 +119,7 @@ class _SigninViewState extends State<SigninView> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20.0),
                           child: CustomTextField(
-                            label: 'Email',
+                            hintText: 'Email',
                             prefixIcon: Icon(BankbooLightIcon.envelope, color: Palette.grey,),
                             focusNode: emailFocus,
                             onSaved: (value) => service.setEmail(value),
@@ -132,7 +132,7 @@ class _SigninViewState extends State<SigninView> {
                           ),
                         ),
                         CustomTextField(
-                          label: 'Password',
+                          hintText: 'Password',
                           prefixIcon: Icon(BankbooLightIcon.lock, color: Palette.grey,),
                           focusNode: pswFocus,
                           obscureText: !service.isVisible,

@@ -36,11 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         iconSize: 20.0,
+        // selectedFontSize: 5,
         selectedIconTheme: IconThemeData(size: 25),
         selectedItemColor: Palette.primary,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(CupertinoIcons.home),
             title: Text('Dashboard', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(

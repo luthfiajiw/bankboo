@@ -16,39 +16,41 @@ class SavingBookTile extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      padding: EdgeInsets.symmetric(vertical: 15.0),
-      color: Colors.white,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Icon(icon, color: iconColor,),
-              ),
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        margin: margin,
+        padding: EdgeInsets.symmetric(vertical: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Icon(icon, color: iconColor,),
+                ),
 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("$accountNumber", style: TextStyle(color: Palette.textBlack, fontSize: 14),),
-                  SizedBox(height: 5),
-                  Container(
-                    width: 250,
-                    child: Text(title, style: TextStyle(color: Palette.textBlack, fontSize: fontSize, fontWeight: FontWeight.w500),)
-                  ),
-                ],
-              ),
-            ],
-          ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("$accountNumber", style: TextStyle(color: Palette.textBlack, fontSize: 14),),
+                    SizedBox(height: 5),
+                    Container(
+                      width: 250,
+                      child: Text(title, style: TextStyle(color: Palette.textBlack, fontSize: fontSize, fontWeight: FontWeight.w500),)
+                    ),
+                  ],
+                ),
+              ],
+            ),
 
-          Container(
-            margin: EdgeInsets.only(right: 20),
-            child: Lozenges(status: status,)
-          )
-        ],
+            Container(
+              margin: EdgeInsets.only(right: 20),
+              child: Lozenges(status: status,)
+            )
+          ],
+        ),
       ),
     );
   }

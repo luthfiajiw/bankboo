@@ -1,3 +1,4 @@
+import 'package:bankboo/shared/widgets/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -36,14 +37,7 @@ class CustomFilledButton extends StatelessWidget {
         highlightColor: color,
         onPressed: isLoading ? null : onPressed,
         child: isLoading
-        ? SizedBox(
-          child: SpinKitThreeBounce(
-            color: color,
-            size: 12.0,
-          ),
-          width: 25.0,
-          height: 25.0
-        )
+        ? loading(context, color: color, size: 12.0, width: 25.0, height: 25.0)
         : Text(
           label,
           style: TextStyle(color: labelColor),

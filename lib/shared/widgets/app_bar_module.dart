@@ -1,4 +1,4 @@
-import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
+
 import 'package:flutter/material.dart';
 
 import '../palette.dart';
@@ -12,6 +12,7 @@ AppBar appBarModule(
 ) => AppBar(
   backgroundColor: backgroundColor != null ? backgroundColor : Colors.white,
   automaticallyImplyLeading: automaticallyImplyLeading ?? true,
+  brightness: Brightness.light,
   leading: IconButton(
     icon: Icon(Icons.arrow_back_ios, color: Palette.textBlack, size: 18,),
     onPressed: onPop
