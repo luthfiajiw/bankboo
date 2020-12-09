@@ -57,7 +57,7 @@ class _SigninViewState extends State<SigninView> {
         Navigator.pushReplacementNamed(context, RoutePaths.Home);
       } catch (e) {
         GenericFetchError error = GenericFetchError.fromJson(e.response.data);
-        _showSnackbar(e);
+        _showSnackbar(error);
         print(e);
         throw(e);
       }
@@ -70,7 +70,7 @@ class _SigninViewState extends State<SigninView> {
       messageText: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(BankbooLightIcon.info_square, size: 14, color: Colors.white,),
+          Icon(Icons.info_outline, size: 16, color: Colors.white,),
           SizedBox(width: 5,),
           Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 12), textAlign: TextAlign.center,),
         ],

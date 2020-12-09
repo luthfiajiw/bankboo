@@ -29,13 +29,12 @@ class _BanksViewState extends State<BanksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: appBarModule(
-        context,
-        title: 'Banks',
-        onPop: () => Navigator.pop(context),
+      appBar: AppBar(
+        backgroundColor: Palette.primary,
+        title: Text('Banks', style: TextStyle(fontSize: 18, color: Colors.white),),
         actions: <Widget>[
           IconButton(
-            icon: Icon(BankbooLightIcon.search, color: Palette.textBlack, size: 16,),
+            icon: Icon(BankbooLightIcon.search, color: Colors.white, size: 16,),
             onPressed: (){}
           )
         ],

@@ -21,48 +21,48 @@ class DepositTile extends StatelessWidget {
         color: Colors.white
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Container(
-                height: 45,
-                width: 45,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Palette.primary
-                ),
-                child: Icon(BankbooLightIcon.donate, color: Colors.white,),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(date, style: TextStyle(color: Palette.textHint, fontSize: 10),),
-                    SizedBox(height: 10,),
-                    Text(category, style: TextStyle(color: Palette.textBlack),),
-                  ],
-                ),
-              )
-            ],
+          Container(
+            height: 45,
+            width: 45,
+            margin: EdgeInsets.only(right: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Palette.primary
+            ),
+            child: Icon(BankbooLightIcon.donate, color: Colors.white,),
           ),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Palette.statusSecondary
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(date, style: TextStyle(color: Palette.textHint, fontSize: 10),),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        color: Palette.statusSecondary
+                      ),
+                      child: Text(status, style: TextStyle(color: Palette.secondary, fontSize: 10),),
+                    ),
+                  ],
                 ),
-                child: Text(status, style: TextStyle(color: Palette.secondary, fontSize: 10),),
-              ),
-              SizedBox(height: 5,),
-              Text('$weight\kg', style: TextStyle(color: Palette.primary, fontSize: 12),)
-            ],
-          )
+                SizedBox(height: 5,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(category, style: TextStyle(color: Palette.textBlack),),
+                    Text('$weight\kg', style: TextStyle(color: Palette.primary, fontSize: 12),)
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

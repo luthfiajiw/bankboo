@@ -14,6 +14,9 @@ class DashboardView extends StatefulWidget {
 }
 
 class _DashboardViewState extends State<DashboardView> {
+  int selectedSavingBookNum;
+  String selectedSavingBookName;
+  int currentBalance;
 
   @override
   void initState() {
@@ -29,6 +32,24 @@ class _DashboardViewState extends State<DashboardView> {
     );
   }
 
+  _showDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Expanded(
+          child: SimpleDialog(
+            children: [
+              Container(
+                width: 150,
+                child: Image.asset('lib/assets/piggy_bank_monochromatic.svg'),
+              )
+            ],
+          )
+        );
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,8 +62,8 @@ class _DashboardViewState extends State<DashboardView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   SavingBooksDropdown(
-                    accountNumber: '234 234',
-                    bankName: 'Bank Sampah Ngawi',
+                    accountNumber: selectedSavingBookNum ?? '',
+                    bankName: selectedSavingBookName ?? 'Pilih Buku Tabungan',
                     onTap: () => _showSavingBooksDropdown(),
                   ),
                   InkWell(
@@ -54,7 +75,7 @@ class _DashboardViewState extends State<DashboardView> {
             ),
 
             EndingBalance(
-              balance: 5000000,
+              balance: currentBalance ?? 0,
             ),
 
             Container(
@@ -65,7 +86,7 @@ class _DashboardViewState extends State<DashboardView> {
                     title: 'Setoran',
                     margin: EdgeInsets.only(right: 10),
                     icon: Icon(BankbooLightIcon.donate, size: 30, color: Palette.secondary,),
-                    onTap: (){},
+                    onTap: () => _showDialog(),
                   ),
                   Menu(
                     title: 'Penarikan',
@@ -80,12 +101,12 @@ class _DashboardViewState extends State<DashboardView> {
               margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
               child: Row(
                 children: <Widget>[
-                  Menu(
-                    margin: EdgeInsets.only(right: 10),
-                    title: 'Banks',
-                    icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
-                    onTap: () => Navigator.pushNamed(context, RoutePaths.Banks),
-                  ),
+                  // Menu(
+                  //   margin: EdgeInsets.only(right: 10),
+                  //   title: 'Banks',
+                  //   icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
+                  //   onTap: () => Navigator.pushNamed(context, RoutePaths.Banks),
+                  // ),
                   Menu(
                     title: 'Buku Tabungan',
                     icon: Icon(BankbooLightIcon.credit_card_front, size: 30, color: Palette.secondary,),

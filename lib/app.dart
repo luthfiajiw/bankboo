@@ -40,7 +40,7 @@ class BankbooApp extends StatelessWidget {
           ),
         ),
         initialRoute: RoutePaths.Splash,
-        onGenerateRoute: Router.generate,
+        onGenerateRoute: Routes.generate,
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
         ],

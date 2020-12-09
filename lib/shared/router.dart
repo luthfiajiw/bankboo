@@ -7,7 +7,7 @@ import 'package:bankboo/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Router {
+class Routes {
   static Route<dynamic> generate(RouteSettings settings) {
     print('ROUTE ${settings.name}');
     switch (settings.name) {

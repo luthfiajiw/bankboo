@@ -10,13 +10,14 @@ AppBar appBarModule(
     bool automaticallyImplyLeading, Function onPop
   }
 ) => AppBar(
-  backgroundColor: backgroundColor != null ? backgroundColor : Colors.white,
+  backgroundColor: backgroundColor != null ? backgroundColor : Palette.primary,
   automaticallyImplyLeading: automaticallyImplyLeading ?? true,
   brightness: Brightness.light,
   leading: IconButton(
-    icon: Icon(Icons.arrow_back_ios, color: Palette.textBlack, size: 18,),
+    icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18,),
     onPressed: onPop
   ),
-  title: Text(title, style: TextStyle(fontSize: 18, color: Palette.textBlack),),
+  elevation: 1,
+  title: Text(title, style: TextStyle(fontSize: 18, color: Colors.white),),
   actions: actions,
 );

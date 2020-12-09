@@ -1,3 +1,4 @@
+import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/dashboard/dashboard_view.dart';
 import 'package:bankboo/pages/profile/profile_view.dart';
 import 'package:bankboo/pages/transaction/transaction_view.dart';
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _pages = [
     DashboardView(),
     TransactionView(),
-    TransactionView(),
+    BanksView(),
     ProfileView(),
   ];
 
@@ -49,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Transaksi', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
-            icon: Icon(BankbooLightIcon.clipboard_list_check),
-            title: Text('Laporan', style: TextStyle(fontSize: 10.0))
+            icon: Icon(BankbooLightIcon.university),
+            title: Text('Banks', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
             icon: Icon(BankbooLightIcon.user),

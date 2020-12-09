@@ -46,7 +46,7 @@ SavingBook _$SavingBookFromJson(Map<String, dynamic> json) {
   return SavingBook(
     id: json['id'] as String,
     number: json['number'] as int,
-    balance: json['balance'] as String,
+    balance: json['balance'] as int,
     createdAt: json['createdAt'] as String,
     updatedAt: json['updatedAt'] as String,
     customer: json['customer'] == null

@@ -48,7 +48,7 @@ class Data {
 class SavingBook {
   String id;
   int number;
-  String balance;
+  int balance;
   String createdAt;
   String updatedAt;
   Customer customer;
