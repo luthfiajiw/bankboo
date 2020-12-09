@@ -142,32 +142,12 @@ class _SigninViewState extends State<SigninView> {
                             ),
                           ],
                         ),
-                        // CustomTextField(
-                        //   hintText: 'Password',
-                        //   prefixIcon: Icon(BankbooLightIcon.lock, color: Palette.grey,),
-                        //   focusNode: pswFocus,
-                        //   obscureText: !service.isVisible,
-                        //   onSaved: (value) => service.setPassword(value),
-                        //   suffixIcon: IconButton(
-                        //     icon: Icon(!service.isVisible ? BankbooLightIcon.eye_slash : BankbooLightIcon.eye, color: Palette.grey, size: 18,),
-                        //     onPressed: () => service.setVisible(!service.isVisible)
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value == '') {
-                        //       return 'Password harus diisi';
-                        //     } else if (value.length < 6) {
-                        //       return 'Panjang password minimal 6 karakter';
-                        //     }
-                            
-                        //     return null;
-                        //   },
-                        // )
                       ],
                     ),
 
                     // Button Actions
                     CustomFilledButton(
-                      onPressed: () => Navigator.pushNamed(context, RoutePaths.Login),
+                      onPressed: () => Navigator.pushNamed(context, RoutePaths.Register),
                       label: 'Lanjut',
                       labelColor: Colors.white,
                       isLoading: service.isBusy,

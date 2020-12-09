@@ -2,6 +2,7 @@ import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/saving_books/saving_books_view.dart';
 import 'package:bankboo/pages/signin/login_view.dart';
+import 'package:bankboo/pages/signin/register_view.dart';
 import 'package:bankboo/pages/signin/signin_view.dart';
 import 'package:bankboo/screens/home_screen.dart';
 import 'package:bankboo/screens/splash_screen.dart';
@@ -20,6 +21,9 @@ class Routes {
         break;
       case RoutePaths.Login:
         return CupertinoPageRoute(builder: (_) => LoginView());
+        break;
+      case RoutePaths.Register:
+        return CupertinoPageRoute(builder: (_) => RegisterView());
         break;
       case RoutePaths.Home:
         return CupertinoPageRoute(builder: (_) => HomeScreen());
