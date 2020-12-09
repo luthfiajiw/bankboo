@@ -1,22 +1,29 @@
 import 'package:bankboo/core/constants/route_paths.dart';
-import 'package:bankboo/pages/signin/local_widgets/confirmation_pin_field.dart';
-import 'package:bankboo/pages/signin/local_widgets/new_pin_field.dart';
-import 'package:bankboo/pages/signin/local_widgets/user_register_field.dart';
-import 'package:bankboo/pages/signin/signin_service.dart';
+import 'package:bankboo/pages/auth/local_widgets/confirmation_pin_field.dart';
+import 'package:bankboo/pages/auth/local_widgets/new_pin_field.dart';
+import 'package:bankboo/pages/auth/local_widgets/user_register_field.dart';
+import 'package:bankboo/pages/auth/auth_service.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
 import 'package:bankboo/shared/widgets/custom_textfield.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterView extends StatefulWidget {
   @override
   _RegisterViewState createState() => _RegisterViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> with TickerProviderStateMixin{
+class _RegisterViewState extends State<RegisterView> with TickerProviderStateMixin {
+  final form = GlobalKey<FormState>();
+  final formNewPin = GlobalKey<FormState>();
+  final formConfirmationPin = GlobalKey<FormState>();
+  final FocusNode pinFocus = FocusNode();
+  final FocusNode confirmationPinFocus = FocusNode();
   TextEditingController newPinController = TextEditingController();
   TextEditingController confirmationPinController = TextEditingController();
   int step = 1;
@@ -50,34 +57,64 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
   handleTransition() {
     switch (step) {
       case 1:
-        setState(() {
-          step1Offset = Tween<Offset>(begin: Offset(1.5, 0.0), end: Offset.zero).animate(step1Animation);
-        });
-        step2Animation.forward();
-        setState(() {
-          step = 2;
-        });
+        if (form.currentState.validate()) {
+          FocusScope.of(context).unfocus();
+          pinFocus.requestFocus();
+          form.currentState.save();
+          setState(() {
+            step1Offset = Tween<Offset>(begin: Offset(1.5, 0.0), end: Offset.zero).animate(step1Animation);
+          });
+          step2Animation.forward();
+          setState(() {
+            step = 2;
+          });
+        }
         break;
       case 2:
-        step3Animation.forward();
-        setState(() {
-          step2Offset = Tween<Offset>(begin: Offset.zero, end: Offset(1.5, 0.0)).animate(step2Animation);
-          step = 3;
-          btnLabel = 'Selesai';
-        });
+        if (formNewPin.currentState.validate()) {
+          pinFocus.unfocus();
+          confirmationPinFocus.requestFocus();
+          formNewPin.currentState.save();
+          step3Animation.forward();
+          setState(() {
+            step2Offset = Tween<Offset>(begin: Offset.zero, end: Offset(1.5, 0.0)).animate(step2Animation);
+            step = 3;
+            btnLabel = 'Selesai';
+          });
+        }
+        break;
+      case 3:
+        if (formConfirmationPin.currentState.validate()) {
+          formConfirmationPin.currentState.save();
+        }
         break;
       default:
     }
   }
 
+  onSubmit(AuthService service) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    try {
+      await service.register();
+      await service.getAccessToken();
+      prefs.setBool('isNewUser', true);
+
+      Navigator.pushNamedAndRemoveUntil(context, RoutePaths.Home, (route) => false);
+    } catch (e) {
+      throw(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<SigninService>(
+    return Consumer<AuthService>(
       builder: (context, service, _) {
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
             child: Form(
+              key: form,
               child: Container(
                 margin: EdgeInsets.all(20),
                 width: double.infinity,
@@ -101,17 +138,28 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
                           children: [
                             SlideTransition(
                               position: step3Offset,
-                              child: ConfirmationPinField(),
+                              child: ConfirmationPinField(
+                                focusNode: confirmationPinFocus,
+                                confirmationPinController: confirmationPinController,
+                                formConfirmationNewPin: formConfirmationPin,
+                                onCompleted: (value) => service.setPasswordConfirmation(value),
+                              ),
                             ),
                             SlideTransition(
                               position: step2Offset,
                               child: NewPinField(
+                                focusNode: pinFocus,
                                 newPinController: newPinController,
+                                formNewPin: formNewPin,
+                                onCompleted: (value) => service.setPassword(value),
                               ),
                             ),
                             SlideTransition(
                               position: step1Offset,
-                              child: UserRegisterField()
+                              child: UserRegisterField(
+                                onSavedName: (value) => service.setName(value),
+                                onSavedMobilePhone: (value) => service.setMobilePhone(value),
+                              )
                             )
                           ],
                         ),
@@ -126,6 +174,7 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
                         if (step < 3) {
                           handleTransition();
                         } else {
+                          onSubmit(service);
                         }
                       },
                     )

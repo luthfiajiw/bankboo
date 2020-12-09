@@ -4,6 +4,11 @@ import 'package:bankboo/shared/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterField extends StatelessWidget {
+  final Function onSavedName;
+  final Function onSavedMobilePhone;
+
+  const UserRegisterField({Key key, this.onSavedName, this.onSavedMobilePhone}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,10 +29,10 @@ class UserRegisterField extends StatelessWidget {
               hintText: 'Nama Lengkap',
               autofocus: true,
               prefixIcon: Icon(BankbooLightIcon.user, color: Palette.grey,),
-              onSaved: (value) {},
+              onSaved: onSavedName,
               validator: (value) {
                 if (value == '')
-                  return 'Email harus diisi';
+                  return 'Nama lengkap harus diisi';
                 
                 return null;
               },
@@ -37,10 +42,10 @@ class UserRegisterField extends StatelessWidget {
               hintText: 'No. Handphone',
               autofocus: true,
               prefixIcon: Icon(BankbooLightIcon.phone, color: Palette.grey,),
-              onSaved: (value) {},
+              onSaved: onSavedMobilePhone,
               validator: (value) {
                 if (value == '')
-                  return 'Email harus diisi';
+                  return 'No. Handphone harus diisi';
                 
                 return null;
               },

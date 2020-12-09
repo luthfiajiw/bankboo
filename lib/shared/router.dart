@@ -1,9 +1,9 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/saving_books/saving_books_view.dart';
-import 'package:bankboo/pages/signin/login_view.dart';
-import 'package:bankboo/pages/signin/register_view.dart';
-import 'package:bankboo/pages/signin/signin_view.dart';
+import 'package:bankboo/pages/auth/login_view.dart';
+import 'package:bankboo/pages/auth/register_view.dart';
+import 'package:bankboo/pages/auth/auth_view.dart';
 import 'package:bankboo/screens/home_screen.dart';
 import 'package:bankboo/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +17,7 @@ class Routes {
         return CupertinoPageRoute(builder: (_) => SplashScreen());
         break;
       case RoutePaths.Signin:
-        return CupertinoPageRoute(builder: (_) => SigninView());
+        return CupertinoPageRoute(builder: (_) => AuthView());
         break;
       case RoutePaths.Login:
         return CupertinoPageRoute(builder: (_) => LoginView());

@@ -1,5 +1,5 @@
 import 'package:bankboo/core/constants/route_paths.dart';
-import 'package:bankboo/pages/signin/signin_service.dart';
+import 'package:bankboo/pages/auth/auth_service.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SigninService>(
+    return Consumer<AuthService>(
       builder: (context, service, _) {
         return Scaffold(
           backgroundColor: Colors.white,

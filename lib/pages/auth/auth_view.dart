@@ -1,23 +1,23 @@
 import 'package:bankboo/core/constants/route_paths.dart';
-import 'package:bankboo/pages/signin/signin_service.dart';
+import 'package:bankboo/pages/auth/auth_service.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/utils/string_extension.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
-import 'package:bankboo/shared/widgets/custom_outlined_button.dart';
 import 'package:bankboo/shared/widgets/custom_textfield.dart';
 import 'package:bankboo/shared/models/generic_fetch_error.dart';
+import 'package:dio/dio.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SigninView extends StatefulWidget {
+class AuthView extends StatefulWidget {
   @override
-  _SigninViewState createState() => _SigninViewState();
+  _AuthViewState createState() => _AuthViewState();
 }
 
-class _SigninViewState extends State<SigninView> {
+class _AuthViewState extends State<AuthView> {
   final FocusNode pswFocus = FocusNode();
   final FocusNode emailFocus = FocusNode();
   final form = GlobalKey<FormState>();
@@ -28,11 +28,6 @@ class _SigninViewState extends State<SigninView> {
   @override
   void initState() {
     super.initState();
-    // pswFocus.addListener(() {
-    //   setState(() {
-    //     isFocus = pswFocus.hasFocus;
-    //   });
-    // });
     emailFocus.addListener(() {
       setState(() {
         isFocus = emailFocus.hasFocus;
@@ -46,15 +41,20 @@ class _SigninViewState extends State<SigninView> {
     super.dispose();
   }
 
-  void onSubmit(SigninService service) async {
+  void onSubmit(AuthService service) async {
     FocusScope.of(context).unfocus();
     
     if (form.currentState.validate()) {
       form.currentState.save();
 
       try {
-        await service.getAccessToken();
-        Navigator.pushReplacementNamed(context, RoutePaths.Home);
+        Response response = await service.checkingEmail();
+        
+        if (response.data["is_existed_email"]) {
+          Navigator.pushNamed(context, RoutePaths.Login);
+        } else {
+          Navigator.pushNamed(context, RoutePaths.Register);
+        }
       } catch (e) {
         GenericFetchError error = GenericFetchError.fromJson(e.response.data);
         _showSnackbar(error);
@@ -88,7 +88,7 @@ class _SigninViewState extends State<SigninView> {
   @override
   Widget build(BuildContext context) {
     
-    return Consumer<SigninService>(
+    return Consumer<AuthService>(
       builder: (context, service, _) => Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -147,7 +147,7 @@ class _SigninViewState extends State<SigninView> {
 
                     // Button Actions
                     CustomFilledButton(
-                      onPressed: () => Navigator.pushNamed(context, RoutePaths.Register),
+                      onPressed: () => onSubmit(service),
                       label: 'Lanjut',
                       labelColor: Colors.white,
                       isLoading: service.isBusy,
