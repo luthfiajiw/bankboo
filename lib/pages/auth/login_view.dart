@@ -1,10 +1,14 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/auth/auth_service.dart';
+import 'package:bankboo/shared/models/generic_fetch_error.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
+import 'package:bankboo/utils/string_extension.dart';
+
 
 class LoginView extends StatefulWidget {
   @override
@@ -13,6 +17,39 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   TextEditingController pinController = TextEditingController();
+  Flushbar flush;
+
+  onSubmit(AuthService service) async {
+    try {
+      await service.getAccessToken();
+      Navigator.pushNamedAndRemoveUntil(context, RoutePaths.Home, (route) => false);
+    } catch (e) {
+      GenericFetchError error = GenericFetchError.fromJson(e.response.data);
+      _showSnackbar(error);
+      throw(e);
+    }
+  }
+
+  _showSnackbar(GenericFetchError error) {
+    flush = Flushbar<bool>(
+      backgroundColor: Colors.redAccent,
+      messageText: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(Icons.info_outline, size: 16, color: Colors.white,),
+          SizedBox(width: 5,),
+          Text('${error.error.message.capitalize()}', style: TextStyle(color: Colors.white, fontSize: 12), textAlign: TextAlign.center,),
+        ],
+      ),
+      animationDuration: Duration(milliseconds: 700),
+      duration: Duration(seconds: 4),
+      flushbarStyle: FlushbarStyle.FLOATING,
+      flushbarPosition: FlushbarPosition.TOP,
+      borderRadius: 8,
+      isDismissible: true,
+      margin: EdgeInsets.symmetric(horizontal: 15.0),
+    )..show(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +109,10 @@ class _LoginViewState extends State<LoginView> {
                                 obsecureText: true,
                                 textInputType: TextInputType.number,
                                 length: 6, 
-                                onChanged: (value) => print(value),
+                                onChanged: (value) {},
                                 onCompleted: (value) {
-                                  print(value);
+                                  service.setPassword(value);
+                                  onSubmit(service);
                                 },
                               ),
                             )
@@ -83,7 +121,9 @@ class _LoginViewState extends State<LoginView> {
                       ],
                     ),
                     CustomFilledButton(
-                      onPressed: () {},
+                      onPressed: service.isBusy
+                      ? null
+                      : () => onSubmit(service),
                       label: 'Masuk',
                       labelColor: Colors.white,
                       isLoading: service.isBusy,

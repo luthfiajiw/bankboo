@@ -142,7 +142,10 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
                                 focusNode: confirmationPinFocus,
                                 confirmationPinController: confirmationPinController,
                                 formConfirmationNewPin: formConfirmationPin,
-                                onCompleted: (value) => service.setPasswordConfirmation(value),
+                                onCompleted: (value) {
+                                  service.setPasswordConfirmation(value);
+                                  onSubmit(service);
+                                },
                               ),
                             ),
                             SlideTransition(
@@ -174,7 +177,11 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
                         if (step < 3) {
                           handleTransition();
                         } else {
-                          onSubmit(service);
+                          if (service.isBusy) {
+                            return;
+                          } else {
+                            return onSubmit(service);
+                          }
                         }
                       },
                     )
