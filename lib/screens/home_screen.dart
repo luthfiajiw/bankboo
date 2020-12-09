@@ -4,8 +4,10 @@ import 'package:bankboo/pages/profile/profile_view.dart';
 import 'package:bankboo/pages/transaction/transaction_view.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/piggy_bank_modal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,6 +23,38 @@ class _HomeScreenState extends State<HomeScreen> {
     BanksView(),
     ProfileView(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    newUserModal();
+  }
+
+  _showPiggyDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return PiggyBankModal(
+          onTap: () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+
+            Navigator.pop(context);
+            setState(() {
+              _currentIndex = 2;
+            });
+          },
+        );
+      }
+    );
+  }
+
+  Future newUserModal() async  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    if (prefs.getBool('isNewUser')) {
+      _showPiggyDialog();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

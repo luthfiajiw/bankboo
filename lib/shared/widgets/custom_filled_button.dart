@@ -1,7 +1,6 @@
 import 'package:bankboo/shared/widgets/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomFilledButton extends StatelessWidget {
   final Function onPressed;

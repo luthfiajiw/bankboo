@@ -5,6 +5,7 @@ import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart
 import 'package:bankboo/pages/dashboard/saving_books_modal_bottomsheet.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/piggy_bank_modal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,24 +30,6 @@ class _DashboardViewState extends State<DashboardView> {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) => SavingBooksModalBottomsheet()
-    );
-  }
-
-  _showDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Expanded(
-          child: SimpleDialog(
-            children: [
-              Container(
-                width: 150,
-                child: Image.asset('lib/assets/piggy_bank_monochromatic.svg'),
-              )
-            ],
-          )
-        );
-      }
     );
   }
 
@@ -86,7 +69,7 @@ class _DashboardViewState extends State<DashboardView> {
                     title: 'Setoran',
                     margin: EdgeInsets.only(right: 10),
                     icon: Icon(BankbooLightIcon.donate, size: 30, color: Palette.secondary,),
-                    onTap: () => _showDialog(),
+                    onTap: () {},
                   ),
                   Menu(
                     title: 'Penarikan',

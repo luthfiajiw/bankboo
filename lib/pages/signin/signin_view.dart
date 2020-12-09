@@ -28,11 +28,11 @@ class _SigninViewState extends State<SigninView> {
   @override
   void initState() {
     super.initState();
-    pswFocus.addListener(() {
-      setState(() {
-        isFocus = pswFocus.hasFocus;
-      });
-    });
+    // pswFocus.addListener(() {
+    //   setState(() {
+    //     isFocus = pswFocus.hasFocus;
+    //   });
+    // });
     emailFocus.addListener(() {
       setState(() {
         isFocus = emailFocus.hasFocus;
@@ -90,6 +90,7 @@ class _SigninViewState extends State<SigninView> {
     
     return Consumer<SigninService>(
       builder: (context, service, _) => Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: InkWell(
             splashColor: Colors.transparent,
@@ -97,84 +98,80 @@ class _SigninViewState extends State<SigninView> {
             child: Form(
               key: form,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 15.0),
+                margin: EdgeInsets.all(20),
                 width: double.infinity,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        AnimatedContainer(
-                          height: isFocus ? 0 : 100,
-                          duration: Duration(milliseconds: 250),
-                          child: Hero(
-                            tag: 'splash_logo',
-                            child: Image.asset('lib/assets/best-logo-new-green-512.png', scale: 5.0,)
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('lib/assets/best-logo-new-green-512.png', scale: 15.0,),
+                            Text('Bankboo', style: TextStyle(fontSize: 20, color: Palette.primary, fontWeight: FontWeight.w600),)
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: isFocus ? 5.0 : 32.0),
-                          child: Text('Masuk Akun Bankboo', style: Theme.of(context).textTheme.title,),
+                        SizedBox(height: 50,),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                              child: Text(
+                                'Masukkan email kamu untuk untuk masuk atau buat akun baru.',
+                                style: TextStyle(color: Palette.textBlack),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 30.0),
+                              child: CustomTextField(
+                                hintText: 'Email',
+                                autofocus: true,
+                                prefixIcon: Icon(BankbooLightIcon.envelope, color: Palette.grey,),
+                                focusNode: emailFocus,
+                                onSaved: (value) => service.setEmail(value),
+                                validator: (value) {
+                                  if (value == '')
+                                    return 'Email harus diisi';
+                                  
+                                  return null;
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20.0),
-                          child: CustomTextField(
-                            hintText: 'Email',
-                            prefixIcon: Icon(BankbooLightIcon.envelope, color: Palette.grey,),
-                            focusNode: emailFocus,
-                            onSaved: (value) => service.setEmail(value),
-                            validator: (value) {
-                              if (value == '')
-                                return 'Email harus diisi';
-                              
-                              return null;
-                            },
-                          ),
-                        ),
-                        CustomTextField(
-                          hintText: 'Password',
-                          prefixIcon: Icon(BankbooLightIcon.lock, color: Palette.grey,),
-                          focusNode: pswFocus,
-                          obscureText: !service.isVisible,
-                          onSaved: (value) => service.setPassword(value),
-                          suffixIcon: IconButton(
-                            icon: Icon(!service.isVisible ? BankbooLightIcon.eye_slash : BankbooLightIcon.eye, color: Palette.grey, size: 18,),
-                            onPressed: () => service.setVisible(!service.isVisible)
-                          ),
-                          validator: (value) {
-                            if (value == '') {
-                              return 'Password harus diisi';
-                            } else if (value.length < 6) {
-                              return 'Panjang password minimal 6 karakter';
-                            }
+                        // CustomTextField(
+                        //   hintText: 'Password',
+                        //   prefixIcon: Icon(BankbooLightIcon.lock, color: Palette.grey,),
+                        //   focusNode: pswFocus,
+                        //   obscureText: !service.isVisible,
+                        //   onSaved: (value) => service.setPassword(value),
+                        //   suffixIcon: IconButton(
+                        //     icon: Icon(!service.isVisible ? BankbooLightIcon.eye_slash : BankbooLightIcon.eye, color: Palette.grey, size: 18,),
+                        //     onPressed: () => service.setVisible(!service.isVisible)
+                        //   ),
+                        //   validator: (value) {
+                        //     if (value == '') {
+                        //       return 'Password harus diisi';
+                        //     } else if (value.length < 6) {
+                        //       return 'Panjang password minimal 6 karakter';
+                        //     }
                             
-                            return null;
-                          },
-                        )
+                        //     return null;
+                        //   },
+                        // )
                       ],
                     ),
 
                     // Button Actions
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: CustomFilledButton(
-                            onPressed: () => onSubmit(service),
-                            label: 'Masuk',
-                            labelColor: Colors.white,
-                            isLoading: service.isBusy,
-                            color: Palette.secondary,
-                          ),
-                        ),
-                        CustomOutlineButton(
-                          onPressed: () {},
-                          label: 'Buat Akun',
-                          labelColor: Palette.textBlack,
-                          color: Palette.borderDefault,
-                        )
-                      ],
+                    CustomFilledButton(
+                      onPressed: () => Navigator.pushNamed(context, RoutePaths.Login),
+                      label: 'Lanjut',
+                      labelColor: Colors.white,
+                      isLoading: service.isBusy,
+                      color: Palette.secondary,
                     )
                   ],
                 ),
