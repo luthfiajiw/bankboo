@@ -1,13 +1,14 @@
 import 'package:bankboo/pages/banks/banks.dart';
 import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/pages/banks/local_widgets/bank_tile.dart';
+import 'package:bankboo/pages/banks/local_widgets/register_saving_book_instructions.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
-import 'package:bankboo/shared/widgets/app_bar_module.dart';
 import 'package:bankboo/shared/widgets/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BanksView extends StatefulWidget {
   const BanksView({Key key}) : super(key: key);
@@ -22,7 +23,30 @@ class _BanksViewState extends State<BanksView> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration.zero, () async => await Provider.of<BanksService>(context, listen: false).getBanks());
+    Future.delayed(Duration.zero, () async {
+      await Provider.of<BanksService>(context, listen: false).getBanks();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      if (prefs.getBool('isNewUser')) {
+        _showInstructions();
+      }
+    });
+  }
+
+  _showInstructions() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return RegisterSavingBookInstructionsModal(
+          onTap: () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            
+            prefs.setBool('isNewUser', false);
+            Navigator.pop(context);
+          },
+        );
+      }
+    );
   }
 
   @override
