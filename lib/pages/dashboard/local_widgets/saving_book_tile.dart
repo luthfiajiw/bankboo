@@ -30,7 +30,7 @@ class SavingBookTile extends StatelessWidget {
             children: <Widget>[
               Text(title, style: TextStyle(color: Palette.textBlack, fontSize: fontSize, fontWeight: FontWeight.w500),),
               SizedBox(height: 5),
-              Text("Rp. ${balance.numberFormat()}"),
+              Text("Rp${balance.numberFormat()}"),
             ],
           ),
 

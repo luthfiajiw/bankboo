@@ -9,18 +9,18 @@ class SavingBooksService extends BaseProvider {
   SavingBooks savingBooks = new SavingBooks();
 
   Future<SavingBooks> getList() async {
-    setBusy(true);
 
     try {
+      setBusy(true);
       response = await Request().getList(endpoint: '/saving-books');
 
       savingBooks = SavingBooks.fromJson(response.data);
 
-      setBusy(false);
       return savingBooks;  
     } catch (e) {
-      setBusy(false);
       throw(e);
+    } finally {
+      setBusy(false);
     }
   }
 }

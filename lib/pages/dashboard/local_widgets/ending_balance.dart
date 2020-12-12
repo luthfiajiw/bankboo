@@ -26,7 +26,7 @@ class EndingBalance extends StatelessWidget {
             Text('Saldo Akhir', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w300),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text('Rp. ${balance.numberFormat()}', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),
+              child: Text('Rp${balance.numberFormat()}', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),
             ),
           ],
         ),
