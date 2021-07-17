@@ -12,7 +12,7 @@ class EndingBalance extends StatelessWidget {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 5, 15, 20),
       width: double.infinity,
-      height: 125,
+      padding: EdgeInsets.symmetric(vertical: 24),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -33,7 +33,7 @@ class EndingBalance extends StatelessWidget {
           children: <Widget>[
             Text('Saldo Akhir', style: TextStyle(color: Palette.textBlack, fontSize: 16, fontWeight: FontWeight.normal),),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text('Rp${balance.numberFormat()}', style: TextStyle(color: Palette.g2, fontSize: 30, fontWeight: FontWeight.w600),),
             ),
           ],
