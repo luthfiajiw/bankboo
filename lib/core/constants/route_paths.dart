@@ -4,7 +4,9 @@ class RoutePaths {
   static const String Login = "/login";
   static const String Register = "/register";
   static const String Home = "/home";
-  static const String Banks = "/banks";
   static const String BankProfile = "/bank_profile";
   static const String SavingBooks = "/saving_books";
+  static const String TransactionView = "/transaction";
+  static const String ProfileView = "/profile";
+  static const String BanksView = "/banks";
 } 

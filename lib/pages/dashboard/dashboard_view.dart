@@ -1,3 +1,4 @@
+import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';
@@ -50,8 +51,8 @@ class _DashboardViewState extends State<DashboardView> {
                     onTap: () => _showSavingBooksDropdown(),
                   ),
                   InkWell(
-                    onTap: (){},
-                    child: Icon(Icons.account_box, size:35, color: Palette.grey,),
+                    onTap: () => Navigator.pushNamed(context, RoutePaths.ProfileView),
+                    child: Icon(BankbooLightIcon.user, size:20, color: Palette.grey,),
                   )
                 ],
               ),
@@ -67,7 +68,7 @@ class _DashboardViewState extends State<DashboardView> {
                 children: <Widget>[
                   Menu(
                     title: 'Setoran',
-                    margin: EdgeInsets.only(right: 10),
+                    margin: EdgeInsets.only(right: 15),
                     icon: Icon(BankbooLightIcon.donate, size: 30, color: Palette.secondary,),
                     onTap: () {},
                   ),
@@ -75,6 +76,25 @@ class _DashboardViewState extends State<DashboardView> {
                     title: 'Penarikan',
                     icon: Icon(BankbooLightIcon.vote_yea, size: 28, color: Palette.secondary,),
                     onTap: (){},
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.all(15),
+              child: Row(
+                children: <Widget>[
+                  Menu(
+                    title: 'Banks',
+                    margin: EdgeInsets.only(right: 15),
+                    icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
+                    onTap: () => Navigator.pushNamed(context, RoutePaths.BanksView),
+                  ),
+                  Menu(
+                    title: 'Transaksi',
+                    icon: Icon(BankbooLightIcon.wallet, size: 28, color: Palette.secondary,),
+                    onTap: () => Navigator.pushNamed(context, RoutePaths.TransactionView),
                   )
                 ],
               ),

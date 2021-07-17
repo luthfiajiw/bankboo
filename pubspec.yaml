@@ -33,9 +33,7 @@ dependencies:
   sqflite: ^2.0.0+3
   pin_code_fields: ^7.2.0
   intro_slider: ^3.0.2
-  flushbar:
-    git:
-      url: https://github.com/valterh4ck3r/flushbar.git
+  another_flushbar: ^1.10.24
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3

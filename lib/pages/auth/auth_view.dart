@@ -15,9 +15,9 @@ class AuthView extends StatefulWidget {
 }
 
 class _AuthViewState extends State<AuthView> {
-  final FocusNode pswFocus = FocusNode();
   final FocusNode emailFocus = FocusNode();
-  final form = GlobalKey<FormState>();
+  final _form = GlobalKey<FormState>();
+  final _scaffold = GlobalKey<ScaffoldState>();
 
   bool isFocus = false;
 
@@ -33,15 +33,14 @@ class _AuthViewState extends State<AuthView> {
 
   @override
   void dispose() {
-    pswFocus.dispose();
     super.dispose();
   }
 
   void onSubmit(AuthService service) async {
     FocusScope.of(context).unfocus();
     
-    if (form.currentState.validate()) {
-      form.currentState.save();
+    if (_form.currentState.validate()) {
+      _form.currentState.save();
 
       try {
         Response response = await service.checkingEmail();
@@ -62,13 +61,14 @@ class _AuthViewState extends State<AuthView> {
     
     return Consumer<AuthService>(
       builder: (context, service, _) => Scaffold(
+        key: _scaffold,
         backgroundColor: Colors.white,
         body: SafeArea(
           child: InkWell(
             splashColor: Colors.transparent,
             onTap: () => FocusScope.of(context).unfocus(),
             child: Form(
-              key: form,
+              key: _form,
               child: Container(
                 margin: EdgeInsets.all(20),
                 width: double.infinity,

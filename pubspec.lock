@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.1"
+  another_flushbar:
+    dependency: "direct main"
+    description:
+      name: another_flushbar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.10.24"
   args:
     dependency: transitive
     description:
@@ -204,15 +211,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  flushbar:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "681425d7e1177dbd714c13af5460ee4e836edac9"
-      url: "https://github.com/valterh4ck3r/flushbar.git"
-    source: git
-    version: "1.9.1"
   flutter:
     dependency: "direct main"
     description: flutter

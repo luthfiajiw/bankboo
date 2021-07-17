@@ -3,8 +3,8 @@ import 'package:bankboo/pages/auth/auth_service.dart';
 import 'package:bankboo/shared/models/generic_fetch_error.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:another_flushbar/flushbar.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:bankboo/utils/string_extension.dart';
@@ -17,7 +17,6 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   TextEditingController pinController = TextEditingController();
-  Flushbar flush;
 
   onSubmit(AuthService service) async {
     try {
@@ -31,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
   }
 
   _showSnackbar(GenericFetchError error) {
-    flush = Flushbar<bool>(
+    Flushbar(
       backgroundColor: Colors.redAccent,
       messageText: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
       duration: Duration(seconds: 4),
       flushbarStyle: FlushbarStyle.FLOATING,
       flushbarPosition: FlushbarPosition.TOP,
-      borderRadius: 8,
+      borderRadius: BorderRadius.circular(8),
       isDismissible: true,
       margin: EdgeInsets.symmetric(horizontal: 15.0),
     )..show(context);

@@ -4,6 +4,8 @@ import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/auth/login_view.dart';
 import 'package:bankboo/pages/auth/register_view.dart';
 import 'package:bankboo/pages/auth/auth_view.dart';
+import 'package:bankboo/pages/profile/profile_view.dart';
+import 'package:bankboo/pages/transaction/transaction_view.dart';
 import 'package:bankboo/screens/home_screen.dart';
 import 'package:bankboo/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,8 +30,14 @@ class Routes {
       case RoutePaths.Home:
         return CupertinoPageRoute(builder: (_) => HomeScreen());
         break;
-      case RoutePaths.Banks:
+      case RoutePaths.BanksView:
         return CupertinoPageRoute(builder: (_) => BanksView());
+        break;
+      case RoutePaths.TransactionView:
+        return CupertinoPageRoute(builder: (_) => TransactionView());
+        break;
+      case RoutePaths.ProfileView:
+        return CupertinoPageRoute(builder: (_) => ProfileView());
         break;
       case RoutePaths.BankProfile:
         final BankProfileArgs args = settings.arguments;
