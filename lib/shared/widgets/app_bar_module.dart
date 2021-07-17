@@ -10,12 +10,12 @@ AppBar appBarModule(
     bool automaticallyImplyLeading, Function onPop
   }
 ) => AppBar(
-  backgroundColor: backgroundColor != null ? backgroundColor : Palette.primary,
+  backgroundColor: backgroundColor != null ? backgroundColor : Palette.g2,
   automaticallyImplyLeading: automaticallyImplyLeading ?? true,
   brightness: Brightness.light,
   leading: IconButton(
     icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18,),
-    onPressed: onPop
+    onPressed: onPop ?? () => Navigator.pop(context)
   ),
   elevation: 1,
   title: Text(title, style: TextStyle(fontSize: 18, color: Colors.white),),

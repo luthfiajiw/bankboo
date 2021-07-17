@@ -16,7 +16,11 @@ class Menu extends StatelessWidget {
         margin: margin,
         height: 125,
         decoration: BoxDecoration(
-          color: Palette.grey.withOpacity(0.07),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Palette.g0, Palette.g2]
+          ),
           borderRadius: BorderRadius.circular(15)
         ),
         child: ClipRRect(
@@ -33,8 +37,8 @@ class Menu extends StatelessWidget {
                     children: <Widget>[
                       icon,
                       Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(title, style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w500),),
+                        padding: const EdgeInsets.only(top: 14.0),
+                        child: Text(title, style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),),
                       )
                     ],
                   ),

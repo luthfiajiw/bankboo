@@ -1,3 +1,4 @@
+import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:bankboo/utils/number_extension.dart';
 
@@ -13,17 +14,14 @@ class EndingBalance extends StatelessWidget {
       width: double.infinity,
       height: 125,
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('lib/assets/bg-dashboard.png'),
-          fit: BoxFit.fill
-        ),
+        color: Palette.g2,
         borderRadius: BorderRadius.circular(15)
       ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Saldo Akhir', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w300),),
+            Text('Saldo Akhir', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Text('Rp${balance.numberFormat()}', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),

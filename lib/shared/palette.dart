@@ -14,4 +14,9 @@ class Palette {
   static Color statusSecondary = Color(0xFFfff3e0);
   static Color statusSucceed = Color(0xFFeafaf7);
   static Color succeed = Color(0xFF01a07a);
+
+  static Color g0 = Color(0xFF8BC43A);
+  static Color g1 = Color(0xFFA8EB12);
+  static Color g2 = Color(0xFF43B850);
+  static Color g3 = Color(0xFF00977C);
 }

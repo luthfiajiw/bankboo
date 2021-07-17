@@ -29,7 +29,7 @@ class DepositTile extends StatelessWidget {
             margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Palette.primary
+              color: Palette.g0
             ),
             child: Icon(BankbooLightIcon.donate, color: Colors.white,),
           ),
@@ -57,7 +57,7 @@ class DepositTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(category, style: TextStyle(color: Palette.textBlack),),
-                    Text('$weight\kg', style: TextStyle(color: Palette.primary, fontSize: 12),)
+                    Text('$weight\kg', style: TextStyle(color: Palette.g0, fontSize: 12),)
                   ],
                 )
               ],

@@ -69,12 +69,12 @@ class _DashboardViewState extends State<DashboardView> {
                   Menu(
                     title: 'Setoran',
                     margin: EdgeInsets.only(right: 15),
-                    icon: Icon(BankbooLightIcon.donate, size: 30, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.donate, size: 30, color: Colors.white,),
                     onTap: () {},
                   ),
                   Menu(
                     title: 'Penarikan',
-                    icon: Icon(BankbooLightIcon.vote_yea, size: 28, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.vote_yea, size: 28, color: Colors.white,),
                     onTap: (){},
                   )
                 ],
@@ -88,12 +88,12 @@ class _DashboardViewState extends State<DashboardView> {
                   Menu(
                     title: 'Banks',
                     margin: EdgeInsets.only(right: 15),
-                    icon: Icon(BankbooLightIcon.university, size: 30, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.university, size: 30, color: Colors.white,),
                     onTap: () => Navigator.pushNamed(context, RoutePaths.BanksView),
                   ),
                   Menu(
                     title: 'Transaksi',
-                    icon: Icon(BankbooLightIcon.wallet, size: 28, color: Palette.secondary,),
+                    icon: Icon(BankbooLightIcon.wallet, size: 28, color: Colors.white,),
                     onTap: () => Navigator.pushNamed(context, RoutePaths.TransactionView),
                   )
                 ],

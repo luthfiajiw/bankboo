@@ -1,4 +1,5 @@
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/app_bar_module.dart';
 import 'package:bankboo/shared/widgets/deposit_tile.dart';
 import 'package:bankboo/shared/widgets/withdrawal_tile.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,9 +19,9 @@ class _TransactionViewState extends State<TransactionView> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Palette.primary,
-        title: Text('Transaksi', style: TextStyle(fontSize: 18, color: Colors.white),),
+      appBar: appBarModule(
+        context,
+        title: 'Transaksi'
       ),
       body: Column(
         children: <Widget>[
@@ -59,7 +60,7 @@ class _TransactionViewState extends State<TransactionView> {
                                 width: _currentIndex == index ? 35.0 : 0.0,
                                 duration: Duration(milliseconds: 200),
                                 decoration: BoxDecoration(
-                                  color: Palette.secondary,
+                                  color: Palette.g1,
                                   borderRadius: BorderRadius.circular(20)
                                 ),
                               )

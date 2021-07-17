@@ -21,10 +21,12 @@ class _ProfileViewState extends State<ProfileView> {
             height: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
-              image: DecorationImage(
-                image: AssetImage('lib/assets/bg-dashboard.png',),
-                fit: BoxFit.cover
-              )
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: [0.1, 1],
+                colors: [Palette.g1, Palette.g0]
+              ),
             ),
           ),
 

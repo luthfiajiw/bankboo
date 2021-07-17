@@ -4,6 +4,7 @@ import 'package:bankboo/pages/banks/local_widgets/bank_tile.dart';
 import 'package:bankboo/pages/banks/local_widgets/register_saving_book_instructions.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/app_bar_module.dart';
 import 'package:bankboo/shared/widgets/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _BanksViewState extends State<BanksView> {
       await Provider.of<BanksService>(context, listen: false).getBanks();
       SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      if (prefs.getBool('isNewUser')) {
+      if (prefs.getBool('isNewUser') == true) {
         _showInstructions();
       }
     });
@@ -53,9 +54,9 @@ class _BanksViewState extends State<BanksView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Palette.primary,
-        title: Text('Banks', style: TextStyle(fontSize: 18, color: Colors.white),),
+      appBar: appBarModule(
+        context,
+        title: 'Banks',
         actions: <Widget>[
           IconButton(
             icon: Icon(BankbooLightIcon.search, color: Colors.white, size: 16,),
@@ -86,7 +87,7 @@ class _BanksViewState extends State<BanksView> {
                     margin: EdgeInsets.only(top: 15.0, bottom: 10),
                     fontSize: 16.0,
                     icon: BankbooLightIcon.university,
-                    iconColor: Palette.secondary,
+                    iconColor: Palette.g0,
                     number: bank.code,
                   ),
                   Divider(indent: 15, endIndent: 15,)

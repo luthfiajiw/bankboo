@@ -1,4 +1,5 @@
 import 'package:bankboo/pages/dashboard/local_widgets/saving_book_tile.dart';
+import 'package:bankboo/pages/saving_books/saving_books.dart';
 import 'package:bankboo/pages/saving_books/saving_books_service.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
@@ -39,8 +40,8 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
           : 0;
 
           List balances = lengthData == 0 ? [] : service.savingBooks.data.results.map((e) => e.balance).toList();
-          int totalBalance = balances.length > 0 
-          ? balances.reduce((value, element) => value + element)
+          int totalBalance = balances.isNotEmpty
+          ? balances.fold(0, (value, element) => value + element)
           : 0;
 
           return Container(
@@ -123,27 +124,25 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
                     ),
                   )
                   : Column(
-                    children: [
-                      SavingBookTile(
-                        margin: EdgeInsets.only(top: 15),
-                        title: 'Buku Tabungan Bank Sampah Ngawi',
-                        fontSize: 14.0,
-                        icon: BankbooLightIcon.credit_card_front,
-                        iconColor: Palette.secondary,
-                        balance: 100000,
-                      ),
-                      Divider(
-                        height: 1,
-                        color: Palette.textHint.withOpacity(0.2),
-                      ),
-                      SavingBookTile(
-                        title: 'Buku Tabungan Bank Sampah Sejahtera',
-                        fontSize: 14.0,
-                        icon: BankbooLightIcon.credit_card_front,
-                        iconColor: Palette.secondary,
-                        balance: 100000,
-                      ),
-                    ],
+                    children: List.generate(lengthData, (index) {
+                      SavingBook savingBook = service.savingBooks.data.results[index];
+                      return Column(
+                        children: [
+                          SavingBookTile(
+                            margin: EdgeInsets.only(top: 15),
+                            title: '${savingBook.bank.name}',
+                            fontSize: 14.0,
+                            icon: BankbooLightIcon.credit_card_front,
+                            iconColor: Palette.secondary,
+                            balance: savingBook.balance,
+                          ),
+                          Divider(
+                            height: 1,
+                            color: Palette.textHint.withOpacity(0.2),
+                          ),
+                        ],
+                      );
+                    }).toList(),
                   )
                 )
 
