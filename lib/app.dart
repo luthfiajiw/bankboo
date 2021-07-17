@@ -24,6 +24,7 @@ class BankbooApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Bankboo',
         theme: ThemeData(
+          fontFamily: 'Muli',
           highlightColor: Colors.transparent,
           focusColor: Colors.transparent,
           appBarTheme: AppBarTheme(

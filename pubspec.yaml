@@ -74,6 +74,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: Muli
+      fonts:
+        - asset: lib/fonts/Muli-Regular.ttf
+        - asset: lib/fonts/Muli-Bold.ttf
+          weight: 700
+        - asset: lib/fonts/Muli-ExtraBold.ttf
+          weight: 900
+        - asset: lib/fonts/Muli-Italic.ttf
+          style: italic
     - family: BankbooLightIcon
       fonts:
         - asset: lib/assets/fonts/BankbooLightIcon.ttf
