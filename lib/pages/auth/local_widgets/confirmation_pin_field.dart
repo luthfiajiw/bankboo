@@ -29,6 +29,7 @@ class ConfirmationPinField extends StatelessWidget {
             child: Form(
               key: formConfirmationNewPin,
               child: PinCodeTextField(
+                appContext: context,
                 autoFocus: false,
                 focusNode: focusNode,
                 controller: confirmationPinController,
@@ -47,8 +48,8 @@ class ConfirmationPinField extends StatelessWidget {
                   selectedFillColor: Palette.textHint,
                 ),
                 enableActiveFill: true,
-                obsecureText: true,
-                textInputType: TextInputType.number,
+                obscureText: true,
+                keyboardType: TextInputType.number,
                 length: 6, 
                 onChanged: (value) {},
                 onCompleted: onCompleted,

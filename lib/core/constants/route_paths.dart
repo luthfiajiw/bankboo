@@ -5,5 +5,6 @@ class RoutePaths {
   static const String Register = "/register";
   static const String Home = "/home";
   static const String Banks = "/banks";
+  static const String BankProfile = "/bank_profile";
   static const String SavingBooks = "/saving_books";
 } 

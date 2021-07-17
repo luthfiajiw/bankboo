@@ -1,4 +1,5 @@
 import 'package:bankboo/core/constants/route_paths.dart';
+import 'package:bankboo/pages/banks/bank_profile_view.dart';
 import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/auth/login_view.dart';
 import 'package:bankboo/pages/auth/register_view.dart';
@@ -29,6 +30,12 @@ class Routes {
         break;
       case RoutePaths.Banks:
         return CupertinoPageRoute(builder: (_) => BanksView());
+        break;
+      case RoutePaths.BankProfile:
+        final BankProfileArgs args = settings.arguments;
+        return CupertinoPageRoute(builder: (_) => BankProfileView(
+          bank: args.bank,
+        ));
         break;
       default:
         return CupertinoPageRoute(builder: (_) => Scaffold(

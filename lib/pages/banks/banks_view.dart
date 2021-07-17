@@ -79,13 +79,18 @@ class _BanksViewState extends State<BanksView> {
             itemBuilder: (context, index) {
               Bank bank = service.banks.data.results[index];
 
-              return BankTile(
-                title: bank.name,
-                margin: EdgeInsets.only(top: 15.0, bottom: 10),
-                fontSize: 16.0,
-                icon: BankbooLightIcon.university,
-                iconColor: Palette.secondary,
-                number: bank.code,
+              return Column(
+                children: [
+                  BankTile(
+                    title: bank.name,
+                    margin: EdgeInsets.only(top: 15.0, bottom: 10),
+                    fontSize: 16.0,
+                    icon: BankbooLightIcon.university,
+                    iconColor: Palette.secondary,
+                    number: bank.code,
+                  ),
+                  Divider(indent: 15, endIndent: 15,)
+                ],
               );
             },
           );

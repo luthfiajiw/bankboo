@@ -36,8 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (BuildContext context) {
         return PiggyBankModal(
           onTap: () async {
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-
             Navigator.pop(context);
             setState(() {
               _currentIndex = 2;
@@ -51,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future newUserModal() async  {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool('isNewUser')) {
+    if (prefs.getBool('isNewUser') == true) {
       _showPiggyDialog();
     }
   }
@@ -77,19 +75,15 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
-            title: Text('Dashboard', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
             icon: Icon(BankbooLightIcon.wallet),
-            title: Text('Transaksi', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
             icon: Icon(BankbooLightIcon.university),
-            title: Text('Banks', style: TextStyle(fontSize: 10.0))
           ),
           BottomNavigationBarItem(
             icon: Icon(BankbooLightIcon.user),
-            title: Text('Profil', style: TextStyle(fontSize: 10.0))
           ),
         ]
       ),

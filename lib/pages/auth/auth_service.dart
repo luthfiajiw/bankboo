@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService extends AuthProvider {
   Response response;
-  Dio dio = new Dio();
 
   Future<Response> getAccessToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -20,7 +19,7 @@ class AuthService extends AuthProvider {
         'password': password,
       };
 
-      response = await Request().signin(endpoint: '/customer/signin', body: body);
+      response = await request.signin(endpoint: '/customer/signin', body: body);
 
       setBusy(false);
       prefs.setString('credentials', jsonEncode(response.data));
@@ -39,8 +38,9 @@ class AuthService extends AuthProvider {
       Map body = {
         'email': email,
       };
+      print(body);
 
-      response = await Request().global(
+      response = await request.global(
         method: Method.POST,
         url: '${Config.API}/customers/is-existed-email',
         body: body
@@ -68,7 +68,7 @@ class AuthService extends AuthProvider {
         'password2': passwordConfirmation
       };
 
-      response = await Request().global(
+      response = await request.global(
         method: Method.POST,
         url: url,
         body: body

@@ -20,15 +20,22 @@ class RegisterSavingBookInstructionsModal extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: IntroSlider(
           isScrollable: true,
-          nameNextBtn: 'Next',
-          nameSkipBtn: 'Skip',
-          nameDoneBtn: 'OK',
+          renderNextBtn: Text('Next'),
+          renderSkipBtn: Text(
+            'Skip',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          ),
+          renderDoneBtn: Text(
+            'OK',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          ),
+          showSkipBtn: true,
+          showNextBtn: true,
+          showDoneBtn: true,
           sizeDot: 5,
           colorDot: Colors.white,
           colorActiveDot: Colors.white,
           typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
-          styleNameDoneBtn: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-          styleNameSkipBtn: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           onDonePress: onTap,
           slides: [
             Slide(

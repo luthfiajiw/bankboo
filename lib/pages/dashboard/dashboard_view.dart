@@ -1,4 +1,3 @@
-import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';

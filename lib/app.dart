@@ -32,7 +32,7 @@ class BankbooApp extends StatelessWidget {
             color: Colors.white,
           ),
           textTheme: TextTheme(
-            title: TextStyle(
+            headline6: TextStyle(
               color: Palette.textBlack,
               fontSize: 20.0,
               fontWeight: FontWeight.bold

@@ -29,6 +29,7 @@ class NewPinField extends StatelessWidget {
             child: Form(
               key: formNewPin,
               child: PinCodeTextField(
+                appContext: context,
                 autoFocus: false,
                 focusNode: focusNode,
                 controller: newPinController,
@@ -47,8 +48,8 @@ class NewPinField extends StatelessWidget {
                   selectedFillColor: Palette.textHint,
                 ),
                 enableActiveFill: true,
-                obsecureText: true,
-                textInputType: TextInputType.number,
+                obscureText: true,
+                keyboardType: TextInputType.number,
                 length: 6, 
                 onChanged: (value) {},
                 onCompleted: onCompleted,

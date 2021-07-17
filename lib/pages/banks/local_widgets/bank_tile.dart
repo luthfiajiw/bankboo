@@ -1,6 +1,5 @@
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:bankboo/utils/number_extension.dart';
 
 class BankTile extends StatelessWidget {
   final IconData icon;

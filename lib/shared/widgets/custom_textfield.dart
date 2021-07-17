@@ -64,7 +64,7 @@ class CustomTextField extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(label, style: TextStyle(color: Theme.of(context).textTheme.title.color, fontSize: 10.0)),
+            child: Text(label, style: TextStyle(color: Theme.of(context).textTheme.headline6.color, fontSize: 10.0)),
           ),
           textFormField()
         ],

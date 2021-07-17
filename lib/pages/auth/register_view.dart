@@ -3,13 +3,9 @@ import 'package:bankboo/pages/auth/local_widgets/confirmation_pin_field.dart';
 import 'package:bankboo/pages/auth/local_widgets/new_pin_field.dart';
 import 'package:bankboo/pages/auth/local_widgets/user_register_field.dart';
 import 'package:bankboo/pages/auth/auth_service.dart';
-import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
-import 'package:bankboo/shared/widgets/custom_textfield.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

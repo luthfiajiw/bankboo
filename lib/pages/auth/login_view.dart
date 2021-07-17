@@ -106,14 +106,15 @@ class _LoginViewState extends State<LoginView> {
                                   selectedFillColor: Palette.textHint,
                                 ),
                                 enableActiveFill: true,
-                                obsecureText: true,
-                                textInputType: TextInputType.number,
+                                obscureText: true,
+                                keyboardType: TextInputType.number,
                                 length: 6, 
                                 onChanged: (value) {},
                                 onCompleted: (value) {
                                   service.setPassword(value);
                                   onSubmit(service);
                                 },
+                                appContext: context,
                               ),
                             )
                           ],

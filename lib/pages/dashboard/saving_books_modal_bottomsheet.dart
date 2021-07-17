@@ -38,7 +38,7 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
           ? service.savingBooks.data.count != null ? service.savingBooks.data.count : 0
           : 0;
 
-          List balances = service.savingBooks.data.results.map((e) => e.balance).toList();
+          List balances = lengthData == 0 ? [] : service.savingBooks.data.results.map((e) => e.balance).toList();
           int totalBalance = balances.length > 0 
           ? balances.reduce((value, element) => value + element)
           : 0;
