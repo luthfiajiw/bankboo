@@ -129,12 +129,17 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
                       return Column(
                         children: [
                           SavingBookTile(
+                            isSelected: savingBook.id == service.savingBook.id,
                             margin: EdgeInsets.only(top: 15),
                             title: '${savingBook.bank.name}',
                             fontSize: 14.0,
                             icon: BankbooLightIcon.credit_card_front,
                             iconColor: Palette.secondary,
                             balance: savingBook.balance,
+                            onTap: () {
+                              service.onSelectSavingBook(savingBook);
+                              Navigator.pop(context);
+                            },
                           ),
                           Divider(
                             height: 1,

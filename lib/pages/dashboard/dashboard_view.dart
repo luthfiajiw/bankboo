@@ -3,11 +3,13 @@ import 'package:bankboo/pages/dashboard/local_widgets/ending_balance.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/menu.dart';
 import 'package:bankboo/pages/dashboard/local_widgets/saving_books_dropdown.dart';
 import 'package:bankboo/pages/dashboard/saving_books_modal_bottomsheet.dart';
+import 'package:bankboo/pages/saving_books/saving_books_service.dart';
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class DashboardView extends StatefulWidget {
   @override
@@ -45,21 +47,25 @@ class _DashboardViewState extends State<DashboardView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  SavingBooksDropdown(
-                    accountNumber: selectedSavingBookNum ?? '',
-                    bankName: selectedSavingBookName ?? 'Pilih Buku Tabungan',
-                    onTap: () => _showSavingBooksDropdown(),
+                  Consumer<SavingBooksService>(
+                    builder: (context, service, _) => SavingBooksDropdown(
+                      accountNumber: '${service.savingBook?.number ?? ""}',
+                      bankName: service.savingBook.bank?.name ?? 'Pilih Buku Tabungan',
+                      onTap: () => _showSavingBooksDropdown(),
+                    ),
                   ),
                   InkWell(
                     onTap: () => Navigator.pushNamed(context, RoutePaths.ProfileView),
-                    child: Icon(BankbooLightIcon.user, size:20, color: Palette.grey,),
+                    child: Icon(BankbooLightIcon.user, size:20, color: Palette.textBlack),
                   )
                 ],
               ),
             ),
 
-            EndingBalance(
-              balance: currentBalance ?? 0,
+            Consumer<SavingBooksService>(
+              builder: (context, service, _) => EndingBalance(
+                balance: service.savingBook.balance ?? 0,
+              ),
             ),
 
             Container(
