@@ -19,4 +19,5 @@ class Palette {
   static Color g1 = Color(0xFFA8EB12);
   static Color g2 = Color(0xFF43B850);
   static Color g3 = Color(0xFF00977C);
+  static Color g4 = Color(0xFF00A56F);
 }

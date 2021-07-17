@@ -14,17 +14,27 @@ class EndingBalance extends StatelessWidget {
       width: double.infinity,
       height: 125,
       decoration: BoxDecoration(
-        color: Palette.g2,
-        borderRadius: BorderRadius.circular(15)
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(
+              0.0, // horizontal, move right 10
+              1.0, // vertical, move down 10
+            ),
+          ),
+        ],
       ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Saldo Akhir', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),),
+            Text('Saldo Akhir', style: TextStyle(color: Palette.textBlack, fontSize: 16, fontWeight: FontWeight.normal),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text('Rp${balance.numberFormat()}', style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w600),),
+              child: Text('Rp${balance.numberFormat()}', style: TextStyle(color: Palette.g2, fontSize: 30, fontWeight: FontWeight.w600),),
             ),
           ],
         ),

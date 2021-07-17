@@ -21,6 +21,16 @@ class Menu extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [Palette.g0, Palette.g2]
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(
+                0.0, // horizontal, move right 10
+                2.0, // vertical, move down 10
+              ),
+            ),
+          ],
           borderRadius: BorderRadius.circular(15)
         ),
         child: ClipRRect(

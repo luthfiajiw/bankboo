@@ -1,4 +1,4 @@
-import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:flutter/material.dart';
 
 class SavingBooksDropdown extends StatelessWidget {
@@ -13,16 +13,27 @@ class SavingBooksDropdown extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(accountNumber, style: TextStyle(color: Palette.grey, fontSize: 12, fontWeight: FontWeight.w600),),
+        Row(
+          children: [
+            Icon(
+              BankbooLightIcon.credit_card_front,
+              color: Colors.white,
+              size: 16,
+            ),
+            SizedBox(width: 8,),
+            Text(accountNumber, style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal),),
+          ],
+        ),
+        SizedBox(height: 4,),
         InkWell(
           onTap: onTap,
           splashColor: Colors.grey[100],
           child: Row(
             children: <Widget>[
-              Text(bankName, style: TextStyle(color: Palette.textBlack, fontWeight: FontWeight.w600, fontSize: 14)),
+              Text(bankName, style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14)),
               Padding(
                 padding: const EdgeInsets.fromLTRB(5.0, 2.5, 0.0, 0.0),
-                child: Icon(Icons.keyboard_arrow_down, color: Palette.textHint, size: 20,),
+                child: Icon(Icons.keyboard_arrow_down, color: Colors.white, size: 20,),
               )
             ],
           ),

@@ -19,6 +19,7 @@ class _TransactionViewState extends State<TransactionView> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: appBarModule(
         context,
         title: 'Transaksi'

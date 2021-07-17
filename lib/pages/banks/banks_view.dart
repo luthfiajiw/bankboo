@@ -59,7 +59,7 @@ class _BanksViewState extends State<BanksView> {
         title: 'Banks',
         actions: <Widget>[
           IconButton(
-            icon: Icon(BankbooLightIcon.search, color: Colors.white, size: 16,),
+            icon: Icon(Icons.search, color: Palette.textBlack, size: 20,),
             onPressed: (){}
           )
         ],

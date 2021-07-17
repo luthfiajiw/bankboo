@@ -24,8 +24,8 @@ class _ProfileViewState extends State<ProfileView> {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: [0.1, 1],
-                colors: [Palette.g1, Palette.g0]
+                stops: [0.3, 1],
+                colors: [Palette.g2, Palette.g4]
               ),
             ),
           ),
