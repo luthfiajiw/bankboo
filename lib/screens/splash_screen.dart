@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   duration: Duration(seconds: 3),
                   child: Hero(
                     tag: 'splash_logo',
-                    child: Image.asset('lib/assets/best-logo-new-green-512.png', scale: 5.0,)
+                    child: Image.asset('lib/assets/best-logo-green-512.png', scale: 5.0,)
                   )
                 )
               ),

@@ -43,7 +43,7 @@ class _DashboardViewState extends State<DashboardView> {
         Container(
           height: 160,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
             // color: Palette.g2
             gradient: LinearGradient(
               begin: Alignment.topLeft,

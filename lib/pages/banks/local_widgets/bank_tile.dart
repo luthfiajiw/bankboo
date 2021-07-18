@@ -8,21 +8,33 @@ class BankTile extends StatelessWidget {
   final int number;
   final double fontSize;
   final EdgeInsets margin;
+  final Function onTap;
 
-  const BankTile({Key key, this.icon, this.iconColor, this.title, this.number, this.fontSize, this.margin}) : super(key: key);
+  const BankTile({
+    Key key,
+    this.icon,
+    this.iconColor,
+    this.title,
+    this.number,
+    this.fontSize,
+    this.margin,
+    this.onTap
+  }) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: (){},
+        onTap: onTap,
         child: Container(
         margin: margin,
         padding: EdgeInsets.symmetric(vertical: 15.0),
         child: Row(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Icon(icon, color: iconColor,),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/assets/bank-avatar.jpg'),
+              ),
             ),
 
             Column(

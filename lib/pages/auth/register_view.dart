@@ -123,8 +123,8 @@ class _RegisterViewState extends State<RegisterView> with TickerProviderStateMix
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('lib/assets/best-logo-new-green-512.png', scale: 15.0,),
-                            Text('Bankboo', style: TextStyle(fontSize: 20, color: Palette.primary, fontWeight: FontWeight.w600),)
+                            Image.asset('lib/assets/best-logo-green-512.png', scale: 15.0,),
+                            Text('Bankboo', style: TextStyle(fontSize: 20, color: Palette.g0, fontWeight: FontWeight.w600),)
                           ],
                         ),
                         SizedBox(height: 50,),

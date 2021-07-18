@@ -1,3 +1,5 @@
+import 'package:bankboo/core/constants/route_paths.dart';
+import 'package:bankboo/pages/banks/bank_profile_view.dart';
 import 'package:bankboo/pages/banks/banks.dart';
 import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/pages/banks/local_widgets/bank_tile.dart';
@@ -76,7 +78,7 @@ class _BanksViewState extends State<BanksView> {
           )
           : ListView.separated(
             itemCount: lengthData,
-            separatorBuilder: (context, index) => Divider(color: Palette.textHint.withOpacity(0.2), indent: 20, endIndent: 20,), 
+            separatorBuilder: (context, index) => Divider(color: Palette.textHint, indent: 20, endIndent: 20,), 
             itemBuilder: (context, index) {
               Bank bank = service.banks.data.results[index];
 
@@ -89,8 +91,14 @@ class _BanksViewState extends State<BanksView> {
                     icon: BankbooLightIcon.university,
                     iconColor: Palette.g0,
                     number: bank.code,
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RoutePaths.BankProfile,
+                        arguments: BankProfileArgs(bank)
+                      );
+                    },
                   ),
-                  Divider(indent: 15, endIndent: 15,)
                 ],
               );
             },
