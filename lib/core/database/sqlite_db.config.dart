@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bankboo/core/database/saving_book_table.dart';
+import 'package:bankboo/pages/saving_books/saving_books.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import "package:path/path.dart";
@@ -32,5 +33,17 @@ class SqliteDB {
 
   Future onCreateTables(Database db, int version) async {
     await savingBookTable.onCreate(db);
+  }
+
+  // SAVING BOOK OPERATIONS
+  replaceSavingBook(SavingBook data) async {
+    final db = await database;
+    await savingBookTable.replaceRow(db, data);
+  }
+
+  Future<SavingBook> getRowSavingBook(String filter) async {
+    final db = await database;
+    SavingBook res = await savingBookTable.getRow(db, filter);
+    return res;
   }
 }

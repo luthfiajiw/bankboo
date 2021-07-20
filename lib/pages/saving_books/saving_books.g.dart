@@ -65,6 +65,6 @@ Map<String, dynamic> _$SavingBookToJson(SavingBook instance) =>
       'balance': instance.balance,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'customer': instance.customer,
-      'bank': instance.bank,
+      'customer': instance.customer?.toJson(),
+      'bank': instance.bank?.toJson(),
     };

@@ -23,7 +23,14 @@ class _DashboardViewState extends State<DashboardView> {
 
   @override
   void initState() {
+    _checkingDB();
     super.initState();
+  }
+
+  _checkingDB() {
+    Future.delayed(Duration.zero, () async {
+      await Provider.of<SavingBooksService>(context, listen: false).savingBookChecking();
+    });
   }
 
   _showSavingBooksDropdown() {

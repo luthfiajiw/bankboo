@@ -6,6 +6,7 @@ import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SavingBooksModalBottomsheet extends StatefulWidget {
   @override
@@ -136,7 +137,9 @@ class _SavingBooksModalBottomsheetState extends State<SavingBooksModalBottomshee
                             icon: BankbooLightIcon.credit_card_front,
                             iconColor: Palette.secondary,
                             balance: savingBook.balance,
-                            onTap: () {
+                            onTap: () async {
+                              SharedPreferences prefs = await SharedPreferences.getInstance();
+                              prefs.setString('selected_saving_book_id', savingBook.id);
                               service.onSelectSavingBook(savingBook);
                               Navigator.pop(context);
                             },
