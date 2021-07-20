@@ -120,12 +120,13 @@ class BankProfileView extends StatelessWidget {
       ),
       bottomSheet: Consumer<BanksService>(
         builder: (context, service, _) => Container(
+          color: Colors.white,
           padding: EdgeInsets.all(15),
           child: CustomFilledButton(
             isLoading: service.isBusy,
             label: 'Daftar Menjadi Nasabah',
             labelColor: Colors.white,
-            color: Palette.g4,
+            color: Palette.secondary,
             onPressed: () {},
           ),
         ),

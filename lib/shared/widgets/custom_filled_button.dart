@@ -16,8 +16,20 @@ class CustomFilledButton extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(minWidth: double.infinity, minHeight: 45.0),
+    return Container(
+      constraints: BoxConstraints(minWidth: 900, minHeight: 45.0),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 4,
+            offset: Offset(
+              0.0, // horizontal, move right 10
+              2.0, // vertical, move down 10
+            ),
+          ),
+        ],
+      ),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),

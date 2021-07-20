@@ -1,4 +1,5 @@
 import 'package:bankboo/core/constants/route_paths.dart';
+import 'package:bankboo/core/database/sqlite_db.config.dart';
 import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/pages/saving_books/saving_books_service.dart';
 import 'package:bankboo/pages/auth/auth_service.dart';
@@ -10,7 +11,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-class BankbooApp extends StatelessWidget {
+class BankbooApp extends StatefulWidget {
+  @override
+  _BankbooAppState createState() => _BankbooAppState();
+}
+
+class _BankbooAppState extends State<BankbooApp> {
+  @override
+  void initState() {
+    SqliteDB.db.initDB();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent));
