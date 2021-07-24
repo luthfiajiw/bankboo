@@ -42,7 +42,7 @@ class Data {
   Map<String, dynamic> toJson() => _$DataToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Bank {
   String id;
   int code;
@@ -56,6 +56,7 @@ class Bank {
   String lastLogin;
   String createdAt;
   String updatedAt;
+  Relationships relationships;
 
   Bank({
     this.id,
@@ -67,10 +68,25 @@ class Bank {
     this.address,
     this.lastLogin,
     this.createdAt,
-    this.updatedAt
+    this.updatedAt,
+    this.relationships
   });
 
   factory Bank.fromJson(Map<String, dynamic> parsedJson) => _$BankFromJson(parsedJson);
 
   Map<String, dynamic> toJson() => _$BankToJson(this);
+}
+
+@JsonSerializable()
+class Relationships {
+  @JsonKey(name: 'registered_as_customer')
+  bool registeredAsCustomer;
+
+  Relationships({
+    this.registeredAsCustomer
+  });
+
+  factory Relationships.fromJson(Map<String, dynamic> parsedJson) => _$RelationshipsFromJson(parsedJson);
+
+  Map<String, dynamic> toJson() => _$RelationshipsToJson(this);
 }

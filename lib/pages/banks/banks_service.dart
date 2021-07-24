@@ -11,7 +11,7 @@ class BanksService extends BankProvider {
     setBusy(true);
 
     try {
-      response = await Request().getList(endpoint: '/user/banks');
+      response = await Request().getList(endpoint: '/relationships/banks');
 
       setBanks(Banks.fromJson(response.data));
 

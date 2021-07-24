@@ -3,6 +3,7 @@ import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/app_bar_module.dart';
 import 'package:bankboo/shared/widgets/custom_filled_button.dart';
+import 'package:bankboo/shared/widgets/lozenges.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -69,9 +70,20 @@ class BankProfileView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                          '${bank.name}',
-                          style: TextStyle(fontSize: 16, color: Palette.textBlack, fontWeight: FontWeight.w600),
+                        '${bank.name}',
+                        style: TextStyle(fontSize: 16, color: Palette.textBlack, fontWeight: FontWeight.w600),
+                      ),
+                      Visibility(
+                        visible: bank.relationships.registeredAsCustomer,
+                        child: Container(
+                          margin: EdgeInsets.only(top: 10, bottom: 5),
+                          child: Lozenges(
+                            status: 'Terdaftar',
+                            color: Palette.primary,
+                            bgColor: Palette.statusSucceed,
+                          ),
                         ),
+                      )
                       
                     ],
                   ),
@@ -119,15 +131,18 @@ class BankProfileView extends StatelessWidget {
         ),
       ),
       bottomSheet: Consumer<BanksService>(
-        builder: (context, service, _) => Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(15),
-          child: CustomFilledButton(
-            isLoading: service.isBusy,
-            label: 'Daftar Menjadi Nasabah',
-            labelColor: Colors.white,
-            color: Palette.secondary,
-            onPressed: () {},
+        builder: (context, service, _) => Visibility(
+          visible: !bank.relationships.registeredAsCustomer,
+          child: Container(
+            color: Colors.white,
+            padding: EdgeInsets.all(15),
+            child: CustomFilledButton(
+              isLoading: service.isBusy,
+              label: 'Daftar Menjadi Nasabah',
+              labelColor: Colors.white,
+              color: Palette.secondary,
+              onPressed: () {},
+            ),
           ),
         ),
       ),

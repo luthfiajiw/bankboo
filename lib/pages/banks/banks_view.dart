@@ -86,6 +86,7 @@ class _BanksViewState extends State<BanksView> {
                 children: [
                   BankTile(
                     title: bank.name,
+                    registeredAsCust: bank.relationships.registeredAsCustomer,
                     margin: EdgeInsets.only(top: 15.0, bottom: 10),
                     fontSize: 16.0,
                     icon: BankbooLightIcon.university,

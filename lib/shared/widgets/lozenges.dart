@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 
 class Lozenges extends StatelessWidget {
   final String status;
+  final Color bgColor;
+  final Color color;
 
-  const Lozenges({Key key, this.status}) : super(key: key);
+  const Lozenges({
+    Key key,
+    this.status,
+    this.bgColor,
+    this.color
+  }) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -12,9 +19,9 @@ class Lozenges extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: Palette.statusSucceed
+        color: bgColor ?? Palette.statusSucceed
       ),
-      child: Text(status, style: TextStyle(color: Palette.succeed, fontSize: 10),),
+      child: Text(status, style: TextStyle(color: color ?? Palette.succeed, fontSize: 10),),
     );
   }
 }

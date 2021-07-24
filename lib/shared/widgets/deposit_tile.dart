@@ -1,5 +1,6 @@
 import 'package:bankboo/shared/bankboo_light_icon_icons.dart';
 import 'package:bankboo/shared/palette.dart';
+import 'package:bankboo/shared/widgets/lozenges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,14 +53,11 @@ class DepositTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(date, style: TextStyle(color: Palette.textHint, fontSize: 10),),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: Palette.statusSecondary
-                      ),
-                      child: Text(status, style: TextStyle(color: Palette.secondary, fontSize: 10),),
-                    ),
+                    Lozenges(
+                      status: status,
+                      bgColor: Palette.statusSecondary,
+                      color: Palette.secondary,
+                    )
                   ],
                 ),
                 SizedBox(height: 5,),

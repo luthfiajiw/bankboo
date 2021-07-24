@@ -53,6 +53,9 @@ Bank _$BankFromJson(Map<String, dynamic> json) {
     lastLogin: json['last_login'] as String,
     createdAt: json['createdAt'] as String,
     updatedAt: json['updatedAt'] as String,
+    relationships: json['relationships'] == null
+        ? null
+        : Relationships.fromJson(json['relationships'] as Map<String, dynamic>),
   );
 }
 
@@ -67,4 +70,16 @@ Map<String, dynamic> _$BankToJson(Bank instance) => <String, dynamic>{
       'last_login': instance.lastLogin,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'relationships': instance.relationships?.toJson(),
+    };
+
+Relationships _$RelationshipsFromJson(Map<String, dynamic> json) {
+  return Relationships(
+    registeredAsCustomer: json['registered_as_customer'] as bool,
+  );
+}
+
+Map<String, dynamic> _$RelationshipsToJson(Relationships instance) =>
+    <String, dynamic>{
+      'registered_as_customer': instance.registeredAsCustomer,
     };
