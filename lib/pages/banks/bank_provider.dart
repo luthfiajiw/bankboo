@@ -1,5 +1,5 @@
 import 'package:bankboo/core/providers/base_provider.dart';
-import 'package:bankboo/pages/banks/banks.dart';
+import 'package:bankboo/pages/banks/models/banks.dart';
 
 class BankProvider extends BaseProvider {
   Banks _banks = Banks();

@@ -1,6 +1,6 @@
 import 'package:bankboo/core/constants/route_paths.dart';
 import 'package:bankboo/pages/banks/bank_profile_view.dart';
-import 'package:bankboo/pages/banks/banks.dart';
+import 'package:bankboo/pages/banks/models/banks.dart';
 import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/pages/banks/local_widgets/bank_tile.dart';
 import 'package:bankboo/pages/banks/local_widgets/register_saving_book_instructions.dart';
@@ -76,33 +76,36 @@ class _BanksViewState extends State<BanksView> {
           ? Center(
             child: loading(context, color: Palette.secondary, size: 20, width: 45, height: 45)
           )
-          : ListView.separated(
-            itemCount: lengthData,
-            separatorBuilder: (context, index) => Divider(color: Palette.textHint, indent: 20, endIndent: 20,), 
-            itemBuilder: (context, index) {
-              Bank bank = service.banks.data.results[index];
+          : RefreshIndicator(
+            onRefresh: () async => service.getBanks(),
+            child: ListView.separated(
+              itemCount: lengthData,
+              separatorBuilder: (context, index) => Divider(color: Palette.borderDefault, indent: 20, endIndent: 20,), 
+              itemBuilder: (context, index) {
+                Bank bank = service.banks.data.results[index];
 
-              return Column(
-                children: [
-                  BankTile(
-                    title: bank.name,
-                    registeredAsCust: bank.relationships.registeredAsCustomer,
-                    margin: EdgeInsets.only(top: 15.0, bottom: 10),
-                    fontSize: 16.0,
-                    icon: BankbooLightIcon.university,
-                    iconColor: Palette.g0,
-                    number: bank.code,
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        RoutePaths.BankProfile,
-                        arguments: BankProfileArgs(bank)
-                      );
-                    },
-                  ),
-                ],
-              );
-            },
+                return Column(
+                  children: [
+                    BankTile(
+                      title: bank.name,
+                      registeredAsCust: bank.relationships.registeredAsCustomer,
+                      margin: EdgeInsets.only(top: 10.0, bottom: 10),
+                      fontSize: 16.0,
+                      icon: BankbooLightIcon.university,
+                      iconColor: Palette.g0,
+                      number: bank.code,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          RoutePaths.BankProfile,
+                          arguments: BankProfileArgs(bank)
+                        );
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
           );
         }
       ),

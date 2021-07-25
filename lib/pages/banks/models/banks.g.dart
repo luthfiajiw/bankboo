@@ -75,11 +75,13 @@ Map<String, dynamic> _$BankToJson(Bank instance) => <String, dynamic>{
 
 Relationships _$RelationshipsFromJson(Map<String, dynamic> json) {
   return Relationships(
-    registeredAsCustomer: json['registered_as_customer'] as bool,
+    json['registered_as_customer'] as bool,
+    json['waiting_for_approval'] as bool,
   );
 }
 
 Map<String, dynamic> _$RelationshipsToJson(Relationships instance) =>
     <String, dynamic>{
       'registered_as_customer': instance.registeredAsCustomer,
+      'waiting_for_approval': instance.waitingForApproval,
     };

@@ -81,10 +81,15 @@ class Bank {
 class Relationships {
   @JsonKey(name: 'registered_as_customer')
   bool registeredAsCustomer;
+  @JsonKey(name: 'waiting_for_approval')
+  bool waitingForApproval;
 
-  Relationships({
-    this.registeredAsCustomer
-  });
+  Relationships(
+    bool registeredAsCustomer,
+    bool waitingForApproval
+  ) :
+  registeredAsCustomer = registeredAsCustomer ?? false,
+  waitingForApproval = waitingForApproval ?? false;
 
   factory Relationships.fromJson(Map<String, dynamic> parsedJson) => _$RelationshipsFromJson(parsedJson);
 

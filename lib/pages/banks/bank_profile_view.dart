@@ -1,4 +1,4 @@
-import 'package:bankboo/pages/banks/banks.dart';
+import 'package:bankboo/pages/banks/models/banks.dart';
 import 'package:bankboo/pages/banks/banks_service.dart';
 import 'package:bankboo/shared/palette.dart';
 import 'package:bankboo/shared/widgets/app_bar_module.dart';

@@ -1,25 +1,23 @@
-import 'package:bankboo/core/services/request.dart';
 import 'package:bankboo/pages/banks/bank_provider.dart';
-import 'package:bankboo/pages/banks/banks.dart';
-import 'package:dio/dio.dart';
+import 'package:bankboo/pages/banks/models/banks.dart';
+import 'package:bankboo/pages/banks/banks_repository.dart';
 
 class BanksService extends BankProvider {
-  Response response;
-  Dio dio = new Dio();
+  BanksRepository banksRepository = BanksRepository();
 
   Future<Banks> getBanks() async {
     setBusy(true);
 
     try {
-      response = await Request().getList(endpoint: '/relationships/banks');
+      Banks banks = await banksRepository.getBanks();
 
-      setBanks(Banks.fromJson(response.data));
+      setBanks(banks);
 
-      setBusy(false);
       return banks;
     } catch (e) {
-      setBusy(false);
       throw(e);
+    } finally {
+      setBusy(false);
     }
   }
 }
