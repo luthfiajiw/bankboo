@@ -16,12 +16,19 @@ class Lozenges extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(maxWidth: 100),
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
         color: bgColor ?? Palette.statusSucceed
       ),
-      child: Text(status, style: TextStyle(color: color ?? Palette.succeed, fontSize: 10),),
+      child: Center(
+        child: Text(
+          status,
+          style: TextStyle(color: color ?? Palette.succeed, fontSize: 10,),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

@@ -56,6 +56,9 @@ BankCustomer _$BankCustomerFromJson(Map<String, dynamic> json) {
     savingBook: json['savingBook'] == null
         ? null
         : SavingBook.fromJson(json['savingBook'] as Map<String, dynamic>),
+    relationships: json['relationships'] == null
+        ? null
+        : Relationships.fromJson(json['relationships'] as Map<String, dynamic>),
   );
 }
 
@@ -67,4 +70,5 @@ Map<String, dynamic> _$BankCustomerToJson(BankCustomer instance) =>
       'user': instance.user?.toJson(),
       'bank': instance.bank?.toJson(),
       'savingBook': instance.savingBook?.toJson(),
+      'relationships': instance.relationships?.toJson(),
     };

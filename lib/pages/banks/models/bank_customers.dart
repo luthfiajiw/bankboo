@@ -54,6 +54,7 @@ class BankCustomer {
   Customer user;
   Bank bank;
   SavingBook savingBook;
+  Relationships relationships;
 
   BankCustomer({
     this.id,
@@ -61,7 +62,8 @@ class BankCustomer {
     this.registeredAt,
     this.user,
     this.bank,
-    this.savingBook
+    this.savingBook,
+    this.relationships
   });
 
   factory BankCustomer.fromJson(Map<String, dynamic> parsedJson) => _$BankCustomerFromJson(parsedJson);

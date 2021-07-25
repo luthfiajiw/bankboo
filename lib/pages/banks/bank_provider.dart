@@ -17,4 +17,9 @@ class BankProvider extends BaseProvider {
     _bank = value;
     notifyListeners();
   }
+
+  updateRelationships(Relationships value) {
+    _bank.relationships = value;
+    notifyListeners();
+  }
 }
