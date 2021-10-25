@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (prefs.getString('credentials') != null) {
       Navigator.pushReplacementNamed(context, RoutePaths.Home);
     } else {
-      Navigator.pushReplacementNamed(context, RoutePaths.Signin);
+      Navigator.pushReplacementNamed(context, RoutePaths.InterceptorView);
     }
   }
 

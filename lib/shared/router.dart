@@ -4,6 +4,7 @@ import 'package:bankboo/pages/banks/banks_view.dart';
 import 'package:bankboo/pages/auth/login_view.dart';
 import 'package:bankboo/pages/auth/register_view.dart';
 import 'package:bankboo/pages/auth/auth_view.dart';
+import 'package:bankboo/pages/folder_branch_baru/interceptor_view.dart';
 import 'package:bankboo/pages/profile/profile_view.dart';
 import 'package:bankboo/pages/transaction/transaction_view.dart';
 import 'package:bankboo/screens/home_screen.dart';
@@ -44,6 +45,9 @@ class Routes {
         return CupertinoPageRoute(builder: (_) => BankProfileView(
           bank: args.bank,
         ));
+        break;
+      case RoutePaths.InterceptorView:
+        return CupertinoPageRoute(builder: (_) => InterceptorView());
         break;
       default:
         return CupertinoPageRoute(builder: (_) => Scaffold(

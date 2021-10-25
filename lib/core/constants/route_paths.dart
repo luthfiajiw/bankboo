@@ -9,4 +9,5 @@ class RoutePaths {
   static const String TransactionView = "/transaction";
   static const String ProfileView = "/profile";
   static const String BanksView = "/banks";
+  static const String InterceptorView = "/interceptor";
 } 
